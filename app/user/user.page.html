@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      User
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <!-- <button id='btn' onclick="camera()">Show camera</button>
+  <video id="video" width="640" height="480"  style="display:none"></video>
+  <script src="javas.js"></script>
+  <div id='video'></div>
+  <button onclick='remove()'>Remove</button> --> 
+
+
+<ion-content>
+  <h1 style="text-align:center">Pick myFriend</h1>
+    <body style='display:inline-block;'>
+        <div>
+          <img id='g1' style=' width: 250px;display:block'src="assets/girl1.png" alt="">
+          <img id='g2' style=" width: 250px;display:none" src="assets/girl2.png" alt="">
+          <img id='g3' style=" width: 250px;display:none"src="assets/girl3.png" alt="">
+          <img id='b1' style=" width: 250px;display:none"src="assets/boy1.png" alt="">
+          <img id='b2' style=" width: 250px;display:none"src="assets/boy2.png" alt="">
+          <img id='b3' style=" width: 250px;display:none"src="assets/boy3.png" alt="">
+        
+        </div>
+        
+        </body> 
+  <ion-buttons style='display:inline-block;float: right'>
+      <ion-card><ion-button (click)='goBack()'> Back</ion-button></ion-card>
+      <ion-card><ion-button (click)='goNext()'> Next</ion-button></ion-card>
+      <ion-card><ion-button>
+          Submit
+        </ion-button></ion-card>
+  </ion-buttons>
+
+
+</ion-content>
+

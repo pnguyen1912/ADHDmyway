@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      ADHD myway
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <h1 id='div1' style="text-align: center;">Welcome back</h1>
+  </ion-card>
+
+
+  <ion-buttons id ='btn' style="width:35%;display:inline-block ">
+
+    <ion-card><img (click)='showAlertsmile()' src="assets/smiley.png" alt=""></ion-card>
+    <ion-card><img (click)='showAlertneutral()' src="assets/neutral.png" alt=""></ion-card>
+    <ion-card><img (click)='showAlertmad()' src="assets/mad.png" alt=""></ion-card>
+
+
+  </ion-buttons>
+
+  <img (click)='ask()' style='width:170px; float: right;display:inline-block;' src="assets/2090.png" alt="">
+
+</ion-content>
