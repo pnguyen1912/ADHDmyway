@@ -137,6 +137,10 @@ export class HomePage {
         {
           text: 'Submit',
           handler: async data => {
+            this.tts.speak({
+              text: 'Thank you!',
+              locale: 'en-US',
+              rate: 1.6,})
             const toast = await this.toastCtrl.create({
               message: 'Thank you for your input',
               duration: 2000,
@@ -186,6 +190,10 @@ export class HomePage {
         {
           text: 'Submit',
           handler: async data => {
+            this.tts.speak({
+              text: 'Thank you!',
+              locale: 'en-US',
+              rate: 1.6,})
             const toast = await this.toastCtrl.create({
               message: 'Thank you for your input',
               duration: 2000,
