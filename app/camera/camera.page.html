@@ -11,4 +11,28 @@
 
   <ion-content >
   <ion-img [src]='base64Image' alt='No picture'></ion-img>
+  <ion-list-header>Select subject:</ion-list-header>
+
+  <ion-item>
+    <ion-label>Homework</ion-label>
+    <ion-select placeholder="Select if apply">
+      <ion-select-option value="f">Math</ion-select-option>
+      <ion-select-option value="m">English</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tasks</ion-label>
+    <ion-select placeholder="Select if apply">
+      <ion-select-option value="f">Grabage</ion-select-option>
+      <ion-select-option value="m">Take medication</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Activities</ion-label>
+    <ion-select placeholder="Select if apply">
+      <ion-select-option value="f">Basketball practice</ion-select-option>
+      <ion-select-option value="m">Chess club</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button>Submit</ion-button>
 </ion-content>

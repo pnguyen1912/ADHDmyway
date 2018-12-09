@@ -34,7 +34,7 @@ export class HomePage {
     console.log('Morning morning')
     let a = setTimeout(() => {
       let div1=document.getElementById('div1')
-    div1.innerText = 'How are you today?';
+    div1.innerHTML = 'How are you today?';
     let btn=document.getElementById('btn');
       btn.style.display = 'inline-block';
       this.tts.speak({
@@ -48,10 +48,14 @@ export class HomePage {
  askagain(){
    let a=setTimeout(()=>{
      let div1=document.getElementById('div1')
-    div1.innerText = 'How are you today?';
+    div1.innerHTML = 'How are you today?';
     let btn=document.getElementById('btn');
       btn.style.display = 'inline-block';
-   
+      this.tts.speak({
+        text: 'How are you today?',
+        locale: 'en-US',
+        rate: 1.6,
+      })
    },10000)
  }
   
