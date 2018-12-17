@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http'
 import {Camera} from '@ionic-native/camera/ngx'
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx'
-
+import {Calendar} from '@ionic-native/calendar/ngx'
+import { HomePage } from './home/home.page';
+import { UserPage } from './user/user.page';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +31,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx'
     SplashScreen,
     Camera, 
     TextToSpeech,
+    Calendar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

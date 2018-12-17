@@ -35,11 +35,11 @@ export class AppComponent {
       url: '/reward',
       icon: 'star'
     },
-{
-title: 'User',
-url: '/user',
- icon: 'contact'
- },
+// {
+// title: 'User',
+// url: '/user',
+//  icon: 'contact'
+//  },
 {
 title: 'Setting',
 url: '/setting',

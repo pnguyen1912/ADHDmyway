@@ -21,5 +21,8 @@ export class ApiService {
   gibi(msg: string){
     console.log(msg)
   }
-
+  select:number = 0;
+  smile: number = 0;
+  neutral: number = 0;
+  mad: number = 0;
 }

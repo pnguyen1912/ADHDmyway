@@ -8,4 +8,58 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
+   
   
+  <ion-content padding>
+  
+  
+  <ion-button (click) = "dash()">Back</ion-button>
+  
+  <ion-card>
+    <ion-card-header>
+        <ion-card-title>User</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  
+        <input type="text" placeholder="Enter Name" >
+        <input type="text" placeholder="Enter Username" >
+        <input type="password" placeholder="Enter Password" >
+        <input type="password" placeholder="Confirm Password" >
+        <input type="email" placeholder = "Enter Email">
+        <input type="number" placeholder="Enter Phone Number">
+        <p>Date of Birth</p>
+        <input type="date" placeholder="Enter Birthdate">
+        
+        
+    </ion-card-content>
+  </ion-card>
+  <div class="update">
+  <ion-button (click) = "med()">Update Medical</ion-button>
+  </div>
+  
+  
+  
+  <div>
+  <p>Notifications</p>
+  <ion-checkbox color="primary" checked>Allow App to send Notifications</ion-checkbox>
+  <ion-checkbox color="secondary">Allow App to use current location</ion-checkbox>
+  <!-- <ion-checkbox color="danger" checked></ion-checkbox>
+  <ion-checkbox color="light"></ion-checkbox>
+  <ion-checkbox color="dark" checked></ion-checkbox> -->
+  </div>
+  
+  
+  
+  
+  <div>
+  
+      <ion-button>Link</ion-button>
+      <ion-button (click) = "logout()">Sign Out</ion-button>
+  
+  </div>
+  
+  
+  
+  
+  
+  </ion-content>

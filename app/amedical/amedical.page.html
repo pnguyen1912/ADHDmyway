@@ -1,0 +1,198 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Medical Questions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="back">
+
+  <div>
+    <img src="assets/icon/adhd.jpg" width="50%" alt="">
+</div>
+
+
+<div id="have">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Have you been diagnosed with ADHD?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button shape="round" color="primary" fill="outline" (click) = "yes()">
+        Yes
+      </ion-button>
+      <ion-button shape="round" color="primary" fill="outline" (click)= "mainHome()"> 
+        No
+      </ion-button>
+      <ion-button shape="round" color="primary" fill="outline" (click)= "mainHome()">
+        Skip
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+<div id="whatKind" style="display: none">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>What kind of medication do you take?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Stimulant</ion-label>
+          <ion-toggle  [(ngModel)] = "stim1"        (ionChange)="change11()" slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Non Stimulant</ion-label>
+          <ion-toggle [(ngModel)] = "nonstim1"      (ionChange)="change12()" slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Antidepressant</ion-label>
+          <ion-toggle [(ngModel)] = "antip"       (ionChange)="change13()" slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label>Anxiety</ion-label>
+          <ion-toggle  [(ngModel)] = "anx"         (ionChange)="change14()" slot="end"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-button shape="round" color="primary" fill="outline" (click) = "next()">Next</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <div>
+    <ion-button shape="round" color="primary" fill="outline" (click) = "back()">
+      Back
+    </ion-button>
+  </div>
+</div>
+
+
+<div id="stim" style="display: none">
+  <ion-card>
+      <ion-card-header>
+          <ion-card-title>Stimulant</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Adderall</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Adderall XR</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Vyvanse</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Retalin</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+  </ion-card>
+
+</div>
+
+
+
+
+<div id="nonstim" style="display: none">
+  <ion-card>
+      <ion-card-header>
+          <ion-card-title>Non Stimulant</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Strattera</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Intunity</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+  </ion-card>
+
+</div>
+
+
+
+
+
+<div id="anti" style="display: none">
+  <ion-card>
+      <ion-card-header>
+          <ion-card-title>Antidepressant</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Wellbutrin</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aventyl</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Luvox</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Lexapro</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+  </ion-card>
+
+</div>
+
+
+
+
+<div id="anxiety" style="display: none">
+  <ion-card>
+      <ion-card-header>
+          <ion-card-title>Anxiety</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Prozac</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Zoloft</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Celexa</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Paxil</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+  </ion-card>
+
+</div>
+<div id="next1" style="display:none">
+    <ion-button shape="round" color="primary" fill="outline" (click) = "next1()">Next</ion-button>
+  </div>
+<div id="back" style="display:none">
+  <ion-button shape="round" color="primary" fill="outline" (click) = "back()">
+    Back
+  </ion-button>
+</div>
+
+
+
+
+</ion-content>

@@ -18,6 +18,9 @@ from '@ionic-native/text-to-speech/ngx'
 import {
   text
 } from '@angular/core/src/render3';
+import { ApiService } from '../api.service';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -25,12 +28,11 @@ import {
 })
 
 export class HomePage {
-  smile: number = 0;
-  neutral: number = 0;
-  mad: number = 0;
+
   
 
-  constructor(private tts: TextToSpeech, private alertCtrl: AlertController, private toastCtrl: ToastController) {
+  constructor(private api:ApiService,private tts: TextToSpeech, private alertCtrl: AlertController, private toastCtrl: ToastController) {
+    
     console.log('Morning morning')
     let a = setTimeout(() => {
       let div1=document.getElementById('div1')
@@ -43,8 +45,41 @@ export class HomePage {
         rate: 1.6,
       })
     }, 3000);
-    
+   
   }
+
+  ngOnInit(){
+    let created = false;
+    let g1 = document.getElementById('g1')
+    let g2 = document.getElementById('g2')
+    let g3 = document.getElementById('g3')
+    let b1 = document.getElementById('b1')
+    let b2 = document.getElementById('b2')
+    let b3 = document.getElementById('b3')
+    let g0 = document.getElementById('g0')
+    if (this.api.select == 1){
+      g1.style.display = 'block';created = true;
+      console.log(this.api.select)
+    } else if (this.api.select ==2){created = true;
+      g2.style.display = 'inline-block';console.log(this.api.select)
+    } 
+       else if (this.api.select ==3){created = true;
+      g3.style.display = 'inline-block';console.log(this.api.select)
+    } 
+       else if (this.api.select ==4){created = true;
+      b1.style.display = 'inline-block';console.log(this.api.select)
+    } 
+       else if (this.api.select ==5){created = true;
+      b2.style.display = 'inline-block';console.log(this.api.select)
+    } 
+       else if (this.api.select ==6){created = true;
+      b3.style.display = 'inline-block';console.log(this.api.select)
+    } 
+    if (created ==true){
+      g0.style.display = 'none'
+    }
+  }
+
  askagain(){
    let a=setTimeout(()=>{
      let div1=document.getElementById('div1')
@@ -107,8 +142,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.smile++;
-      console.log(`smile = ${this.smile}`)
+      this.api.smile++;
+      console.log(`smile = ${this.api.smile}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');
@@ -159,8 +194,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.neutral++
-      console.log(`neutral = ${this.neutral}`)
+      this.api.neutral++
+      console.log(`neutral = ${this.api.neutral}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');
@@ -212,8 +247,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.mad++
-      console.log(`mad = ${this.mad}`)
+      this.api.mad++
+      console.log(`mad = ${this.api.mad}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');
