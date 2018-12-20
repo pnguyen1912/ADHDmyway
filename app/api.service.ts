@@ -21,8 +21,12 @@ export class ApiService {
   gibi(msg: string){
     console.log(msg)
   }
-  select:number = 0;
-  smile: number = 0;
-  neutral: number = 0;
-  mad: number = 0;
+  User = {
+  select: 0,
+  dailymood: {smile: 0,
+  neutral:  0,
+  mad: 0,},
+  task:{}
+}
+
 }

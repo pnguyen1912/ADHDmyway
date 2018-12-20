@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'acharacter', loadChildren: './acharacter/acharacter.module#AcharacterPageModule' },
   { path: 'alogin', loadChildren: './alogin/alogin.module#AloginPageModule' },
   { path: 'amedical', loadChildren: './amedical/amedical.module#AmedicalPageModule' },
-  { path: 'aparent', loadChildren: './aparent/aparent.module#AparentPageModule' }
+  { path: 'aparent', loadChildren: './aparent/aparent.module#AparentPageModule' },
 ];
 
 @NgModule({

@@ -57,23 +57,23 @@ export class HomePage {
     let b2 = document.getElementById('b2')
     let b3 = document.getElementById('b3')
     let g0 = document.getElementById('g0')
-    if (this.api.select == 1){
+    if (this.api.User.select == 1){
       g1.style.display = 'block';created = true;
-      console.log(this.api.select)
-    } else if (this.api.select ==2){created = true;
-      g2.style.display = 'inline-block';console.log(this.api.select)
+      console.log(this.api.User.select)
+    } else if (this.api.User.select ==2){created = true;
+      g2.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.select ==3){created = true;
-      g3.style.display = 'inline-block';console.log(this.api.select)
+       else if (this.api.User.select ==3){created = true;
+      g3.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.select ==4){created = true;
-      b1.style.display = 'inline-block';console.log(this.api.select)
+       else if (this.api.User.select ==4){created = true;
+      b1.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.select ==5){created = true;
-      b2.style.display = 'inline-block';console.log(this.api.select)
+       else if (this.api.User.select ==5){created = true;
+      b2.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.select ==6){created = true;
-      b3.style.display = 'inline-block';console.log(this.api.select)
+       else if (this.api.User.select ==6){created = true;
+      b3.style.display = 'inline-block';console.log(this.api.User.select)
     } 
     if (created ==true){
       g0.style.display = 'none'
@@ -142,8 +142,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.api.smile++;
-      console.log(`smile = ${this.api.smile}`)
+      this.api.User.dailymood.smile++;
+      console.log(`smile = ${this.api.User.dailymood.smile}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');
@@ -194,8 +194,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.api.neutral++
-      console.log(`neutral = ${this.api.neutral}`)
+      this.api.User.dailymood.neutral++
+      console.log(`neutral = ${this.api.User.dailymood.neutral}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');
@@ -247,8 +247,8 @@ export class HomePage {
       ]
     })
     alert.onDidDismiss().then(() => {
-      this.api.mad++
-      console.log(`mad = ${this.api.mad}`)
+      this.api.User.dailymood.mad++
+      console.log(`mad = ${this.api.User.dailymood.mad}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
       let btn=document.getElementById('btn');

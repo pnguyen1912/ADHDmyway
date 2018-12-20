@@ -4,24 +4,38 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Task
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+  <ion-slides>
+    <ion-slide>
+      <ion-card id='todo'>
+        <ion-card-header>To-do:</ion-card-header>
+        <ion-list>
+          
+        </ion-list>
+      </ion-card>
+      <ion-button (click)='classFunction()'>Add</ion-button>
+    </ion-slide>
+    <ion-slide>
+      <ion-card id='doing'>
+        <ion-card-header>Doing:</ion-card-header>
+        <ion-list>
+           
+        </ion-list>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card id='done'> 
+        <ion-card-header>Done:</ion-card-header>
+        <ion-list>
+          
+        </ion-list>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>

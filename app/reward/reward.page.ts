@@ -17,12 +17,21 @@ public FirstName: string;
 
   ngOnInit() {
   }
+  
   change(){
     this.router.navigate(['/acharacter'])
   }
   getdata(){
     const theData = this.api.getMethod('people');
     // this.FirstName = theData[0];
+  }
+
+  move(){
+    
+    let hi=document.getElementById('hi');
+    let me=document.getElementById('me');
+    let tmr=document.getElementById('tmr');
+    hi.append(tmr);
   }
   // add10(){
   //   this.api.select = this.api.select+10;
