@@ -25,8 +25,18 @@ export class ApiService {
       todo: [],
       doing: [],
       done: [],
-      id: [],
-    }
+    },
+    task1: {
+      todo: [],
+      doing: [],
+      done: [],
+    },
+    task2: {
+      todo: [],
+      doing: [],
+      done: [],
+    },
+    
   }
   constructor(private http: HttpClient) {}
 

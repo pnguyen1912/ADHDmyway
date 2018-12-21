@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'alogin', loadChildren: './alogin/alogin.module#AloginPageModule' },
   { path: 'amedical', loadChildren: './amedical/amedical.module#AmedicalPageModule' },
   { path: 'aparent', loadChildren: './aparent/aparent.module#AparentPageModule' },
+  { path: 'report', loadChildren: './report/report.module#ReportPageModule' },
 ];
 
 @NgModule({
