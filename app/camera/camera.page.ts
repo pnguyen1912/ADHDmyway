@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Camera,CameraOptions} from '@ionic-native/camera/ngx'
+import { ApiService } from '../api.service';
 
 declare var window;
 
@@ -13,7 +14,7 @@ export class CameraPage implements OnInit {
 
   private base64Image: string; //Image data
 
-  constructor(private camera: Camera) { }
+  constructor(private api:ApiService, private camera: Camera) { }
 
   
   takephoto(){

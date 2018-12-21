@@ -16,23 +16,23 @@ export class UserPage {
   let b1 = document.getElementById('b1')
   let b2 = document.getElementById('b2')
   let b3 = document.getElementById('b3')
-  if (this.api.select == 1){
+  if (this.api.User.select == 1){
     g1.style.display = 'block'
-    console.log(this.api.select)
-  } else if (this.api.select ==2){
-    g2.style.display = 'block';console.log(this.api.select)
+    console.log(this.api.User.select)
+  } else if (this.api.User.select ==2){
+    g2.style.display = 'block';console.log(this.api.User.select)
   } 
-     else if (this.api.select ==3){
-    g3.style.display = 'block';console.log(this.api.select)
+     else if (this.api.User.select ==3){
+    g3.style.display = 'block';console.log(this.api.User.select)
   } 
-     else if (this.api.select ==4){
-    b1.style.display = 'block';console.log(this.api.select)
+     else if (this.api.User.select ==4){
+    b1.style.display = 'block';console.log(this.api.User.select)
   } 
-     else if (this.api.select ==5){
-    b2.style.display = 'block';console.log(this.api.select)
+     else if (this.api.User.select ==5){
+    b2.style.display = 'block';console.log(this.api.User.select)
   } 
-     else if (this.api.select ==6){
-    b3.style.display = 'block';console.log(this.api.select)
+     else if (this.api.User.select ==6){
+    b3.style.display = 'block';console.log(this.api.User.select)
   } 
   }
  

@@ -49,7 +49,6 @@ export class HomePage {
   }
 
   ngOnInit(){
-    let created = false;
     let g1 = document.getElementById('g1')
     let g2 = document.getElementById('g2')
     let g3 = document.getElementById('g3')
@@ -58,26 +57,24 @@ export class HomePage {
     let b3 = document.getElementById('b3')
     let g0 = document.getElementById('g0')
     if (this.api.User.select == 1){
-      g1.style.display = 'block';created = true;
+      g1.style.display = 'block';
       console.log(this.api.User.select)
-    } else if (this.api.User.select ==2){created = true;
+    } else if (this.api.User.select ==2){
       g2.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.User.select ==3){created = true;
+       else if (this.api.User.select ==3){
       g3.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.User.select ==4){created = true;
+       else if (this.api.User.select ==4){
       b1.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.User.select ==5){created = true;
+       else if (this.api.User.select ==5){
       b2.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-       else if (this.api.User.select ==6){created = true;
+       else if (this.api.User.select ==6){
       b3.style.display = 'inline-block';console.log(this.api.User.select)
     } 
-    if (created ==true){
-      g0.style.display = 'none'
-    }
+    
   }
 
  askagain(){

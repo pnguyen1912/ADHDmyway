@@ -10,32 +10,65 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides>
-    <ion-slide>
-      <ion-card id='todo'>
-        <ion-card-header>To-do:</ion-card-header>
-        <ion-list>
-          
-        </ion-list>
-      </ion-card>
-      <ion-button (click)='classFunction()'>Add</ion-button>
-    </ion-slide>
-    <ion-slide>
-      <ion-card id='doing'>
-        <ion-card-header>Doing:</ion-card-header>
-        <ion-list>
-           
-        </ion-list>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card id='done'> 
-        <ion-card-header>Done:</ion-card-header>
-        <ion-list>
-          
-        </ion-list>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
 
+
+  <div id='root'>
+  <div class="container1">
+    <h1>Things to do</h1>
+  </div>
+  <ion-card>
+    <div (click)="homework()" class="container">
+      <p class="blue">Homework</p>
+
+    </div>
+  </ion-card>
+  <ion-card>
+    <div (click)="task()" class="container">
+      <p class="blue">Tasks</p>
+    </div>
+  </ion-card>
+  <ion-card>
+    <div (click)="activity()" class="container">
+      <p class="blue">Activites</p>
+    </div>
+  </ion-card>
+  <ion-card>
+    <div class="container">
+      <p class="blue">Challenges 🔒 </p>
+    </div>
+  </ion-card>
+</div>
+
+
+
+  <div id='justhw' style="display:none">
+    <ion-slides>
+      <ion-slide>
+        <ion-button (click)='back()'>Back</ion-button>
+        <ion-card id='todo'>
+          <ion-card-header>To-do:</ion-card-header>
+          <ion-list>
+            
+          </ion-list>
+        </ion-card>
+        <ion-button (click)='classFunction()'>Add</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-card id='doing'>
+          <ion-card-header>Doing:</ion-card-header>
+          <ion-list>
+
+          </ion-list>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card id='done'>
+          <ion-card-header>Done:</ion-card-header>
+          <ion-list>
+
+          </ion-list>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>

@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ɵConsole
 } from '@angular/core';
 import {
   Router
@@ -8,6 +9,12 @@ import {
 import {
   AlertController
 } from '@ionic/angular';
+import {
+  ApiService
+} from '../api.service';
+import {
+  rootRenderNodes
+} from '@angular/core/src/view';
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
@@ -16,24 +23,23 @@ import {
 export class ListPage implements OnInit {
   private selectedItem: any;
   public router: Router;
-  private icons = [];
-  public items: Array < {
-    title: string;note: string;icon: string
-  } > = [];
-  constructor(public alertCtrl: AlertController) {}
 
-  myElements: any = [];
+  constructor(public alertCtrl: AlertController, public api: ApiService) {}
 
-  newa = document.createElement('ion-card');
+  public cardss: any = [];
+  public i = 0;
+  public id1 = 0;
+  classFunction() {
+    console.log('test');
+    this.presentAlert();
+  }
   async presentAlert() {
     let todo = document.getElementById('todo');
-
-
     const alert = await this.alertCtrl.create({
       header: 'Add Homework',
       subHeader: 'Which homework are you working on?',
       inputs: [{
-        id: 'input1',
+        id: `input${this.i}`,
         type: 'text',
         placeholder: "Type Here",
       }],
@@ -48,21 +54,27 @@ export class ListPage implements OnInit {
           text: 'Add',
           handler: data => {
 
-            let num = 0;
-            let input1 = < HTMLInputElement > document.getElementById('input1');
-            let work = input1.value;
-            console.log(work);
-            this.newa.id = 'card' + num.toString(); //num="0"
-            console.log(this.newa.id)
-            console.log(typeof this.newa.id)
-            this.myElements.push(this.newa.id)
-            console.log(this.myElements)
-            num++;
 
-            this.newa.innerText = work;
-            todo.appendChild(this.newa);
+            let input1 = < HTMLInputElement > document.getElementById(`input${this.i}`);
+            this.api.User.task.todo[this.i] = input1.value;
+            let newa = document.createElement('ion-card');
+            // newa.setAttribute("(click)","movetodoing()");
+            // newa.setAttribute("id",`card${this.i}`);
+            this.id1++;
 
-            this.newa.onclick = (async) => this.classFunction1();
+            newa.id = `card${this.id1}`; //num="0"
+            // console.log(newa.id)
+            // this.myElements.push(newa.id)
+            // console.log(this.myElements)
+            // num++;
+
+            newa.innerText = this.api.User.task.todo[this.i];
+            todo.appendChild(newa);
+            console.log(this.api.User.task.todo);
+            console.log(newa.id)
+            this.i++;
+
+            newa.onclick = (async) => this.classFunction1(newa.id);
           }
         }
       ]
@@ -74,7 +86,12 @@ export class ListPage implements OnInit {
     await alert.present();
   }
 
-  async presentAlert1() {
+  classFunction1(clicked_id) {
+    this.presentAlert1(clicked_id);
+  }
+  async presentAlert1(clicked_id) {
+    let newa = document.getElementById(clicked_id);
+    let doing = document.getElementById('doing');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
       subHeader: 'Which homework are you working on?',
@@ -91,10 +108,10 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            console.log(this.myElements)
 
-            document.getElementById('doing').appendChild(document.getElementById('card0'))
-            this.newa.onclick = (async) => this.classFunction2();
+
+            doing.append(newa);
+            newa.onclick = (async) => this.classFunction2(newa.id);
           }
         }
       ]
@@ -102,11 +119,16 @@ export class ListPage implements OnInit {
 
     await alert.present();
   }
-  async presentAlert2() {
-    let input1 = document.createElement('this.input1');
+  classFunction2(clicked_id) {
+    this.presentAlert2(clicked_id);
+  }
+  async presentAlert2(clicked_id) {
+    let newa = document.getElementById(clicked_id);
+    let done = document.getElementById('done');
+
     const alert = await this.alertCtrl.create({
       header: 'Are you done?',
-      subHeader: 'Which homework are you working on?',
+      subHeader: 'DONE????',
 
       buttons: [{
           text: 'Cancel',
@@ -120,10 +142,8 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            console.log(this.myElements)
-
-            document.getElementById('done').appendChild(document.getElementById('card0'))
-            input1.onclick = (async) => this.classFunction2();
+            done.append(newa);
+            newa.onclick = (async) => this.classFunction3();
           }
         }
       ]
@@ -131,17 +151,27 @@ export class ListPage implements OnInit {
 
     await alert.present();
   }
-  classFunction1() {
-    this.presentAlert1();
+  classFunction3() {
+    console.log('Already done')
   }
-  classFunction2() {
-    this.presentAlert2();
-  }
-  classFunction() {
-    console.log('test');
-    this.presentAlert();
 
+
+  homework() {
+    document.getElementById('root').style.display = 'none';
+    document.getElementById('justhw').style.display = 'block';
   }
+  back() {
+    document.getElementById('root').style.display = 'block';
+    document.getElementById('justhw').style.display = 'none';
+  }
+
+
+
+
+
+
+
+
 
   ngOnInit() {}
   // add back when alpha.4 is out
