@@ -14,7 +14,7 @@ export class ApiService {
   };
   
   public User = {
-    select: 0,
+    select: 1,
     dailymood: {
       smile: 0,
       neutral: 0,
