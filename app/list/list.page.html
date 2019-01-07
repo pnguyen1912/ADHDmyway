@@ -43,33 +43,30 @@
 
   <div id='justhw' style="display:none">
       <ion-header style="text-align:center">Homework</ion-header>
-    <ion-slides>
-      <ion-slide>
-        <ion-button (click)='back()'>Back</ion-button>
+        <ion-button  (click)='back()'>Back</ion-button>
         <ion-card id='todo'>
-          <ion-card-header>To-do:</ion-card-header>
+          <ion-card-header slot=''>To-do:</ion-card-header>
           <ion-list>
             
           </ion-list>
         </ion-card>
-        <ion-button (click)='classFunction()'>Add</ion-button>
-      </ion-slide>
-      <ion-slide>
+        
+     
         <ion-card id='doing'>
           <ion-card-header>Doing:</ion-card-header>
           <ion-list>
           </ion-list>
         </ion-card>
-      </ion-slide>
-      <ion-slide>
+      
         <ion-card id='done'>
           <ion-card-header>Done:</ion-card-header>
           <ion-list>
 
           </ion-list>
         </ion-card>
-      </ion-slide>
-    </ion-slides>
+
+        <ion-fab-button class='responisve' (click)='classFunction()'>Add</ion-fab-button>
+   <!-- <button (click)='stoptime()'>STOP</button> -->
   </div>
 
 

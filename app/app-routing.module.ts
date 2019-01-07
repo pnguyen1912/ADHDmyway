@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'amedical', loadChildren: './amedical/amedical.module#AmedicalPageModule' },
   { path: 'aparent', loadChildren: './aparent/aparent.module#AparentPageModule' },
   { path: 'report', loadChildren: './report/report.module#ReportPageModule' },
+  { path: 'balloon', loadChildren: './balloon/balloon.module#BalloonPageModule' },
 ];
 
 @NgModule({

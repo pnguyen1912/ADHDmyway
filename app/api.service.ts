@@ -14,7 +14,12 @@ export class ApiService {
   };
   
   public User = {
-    select: 1,
+    select: 3,
+    stars: 2510,
+    exp: 0,
+    level: 1,
+    boot: false,
+    glove: false,
     dailymood: {
       smile: 0,
       neutral: 0,

@@ -46,14 +46,26 @@ url: '/setting',
  icon: 'cog'
  },
   ];
-
+a : any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    // this.timer();
   }
+// time = 0;
+//   timer(){
+//     this.a = setInterval(()=>{
+//       console.log(this.time)
+//       this.time = this.time + 1;
+      
+//     },1000)
+//   }
+//   stoptime(){
+//     clearInterval(this.a)
+//   }
 
   initializeApp() {
     this.platform.ready().then(() => {

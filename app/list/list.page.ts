@@ -16,6 +16,7 @@ import {
   rootRenderNodes
 } from '@angular/core/src/view';
 import {Camera,CameraOptions} from '@ionic-native/camera/ngx';
+import { timer } from 'rxjs';
 
 declare var window;
 @Component({
@@ -25,9 +26,22 @@ declare var window;
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  public router: Router;
   private base64Image: string; //Image data
-  constructor(private camera1: Camera,public alertCtrl: AlertController, public api: ApiService) {}
+  constructor(private camera1: Camera,public alertCtrl: AlertController, public api: ApiService, public router:Router,
+    ) {}
+    a : any;
+    time = 0;
+  timer(counttime){
+    this.a = setInterval(()=>{
+      console.log(this.time)
+      this.time = this.time + 1;
+      counttime.innerText = this.time;
+    },1000)
+  }
+
+  stoptime(){
+    clearInterval(this.a)
+  }
 
   public i = 0;
   public ii = 0;
@@ -78,6 +92,7 @@ export class ListPage implements OnInit {
             console.log(this.api.User);
             console.log(newa.id)
             this.i++;
+            newa.setAttribute('style', 'color:red')
 
             newa.onclick = (async) => this.classFunction1(newa.id);
           }
@@ -93,13 +108,14 @@ export class ListPage implements OnInit {
 
   classFunction1(clicked_id) {
     this.presentAlert1(clicked_id);
+
   }
   async presentAlert1(clicked_id) {
     let newa = document.getElementById(clicked_id);
     let doing = document.getElementById('doing');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: 'Which homework are you working on?',
+      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
 
       buttons: [{
           text: 'Cancel',
@@ -113,7 +129,6 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            
             this.api.User.task.doing[this.ii]= newa.innerText;
             for (let run = 0; run < this.api.User.task.todo.length;run++){
               if (this.api.User.task.todo[run] === this.api.User.task.doing[run]){
@@ -123,9 +138,14 @@ export class ListPage implements OnInit {
             console.log(newa.id)
             console.log(this.api.User)
             doing.append(newa);
+            let newtimer = document.createElement('ion-card')
+
+            this.timer(newtimer);
+            doing.append(newtimer)
             this.ii++;
             newa.onclick = (async) => this.classFunction2(newa.id);
             this.camera();
+            
           }
         }
       ]
@@ -135,6 +155,7 @@ export class ListPage implements OnInit {
   }
   classFunction2(clicked_id) {
     this.presentAlert2(clicked_id);
+
   }
   async presentAlert2(clicked_id) {
     let newa = document.getElementById(clicked_id);
@@ -154,7 +175,7 @@ export class ListPage implements OnInit {
 
           text: 'Yes',
           handler: data => {
-
+            
             // this.api.User.task.doing[this.ii]= newa.innerHTML;
             // delete this.api.User.task.todo[Number(newa.id)-1]
             // console.log(newa.id)
@@ -166,6 +187,7 @@ export class ListPage implements OnInit {
             // newa.onclick = (async) => this.classFunction2(newa.id);
 
             // this.myElements.push(newa.id)
+            this.stoptime();
             done.append(newa);
             this.api.User.task.done[this.iii]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task.doing.length;run++){
@@ -173,15 +195,18 @@ export class ListPage implements OnInit {
                 delete this.api.User.task.doing[run]
               }
             }
+
             console.log(this.api.User);
             this.camera();
             this.iii++;
+            this.router.navigate(['/balloon'])
             newa.onclick = (async) => this.classFunction3();
+
           }
         }
       ]
     })
-
+    
     await alert.present();
   }
   classFunction3() {
@@ -261,7 +286,7 @@ export class ListPage implements OnInit {
     let doing = document.getElementById('doing1');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: 'Which task are you working on?',
+      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
 
       buttons: [{
           text: 'Cancel',
@@ -286,6 +311,7 @@ export class ListPage implements OnInit {
             console.log(this.api.User)
             doing.append(newa);
             this.ii1++;
+            this.camera();
             newa.onclick = (async) => this.classTask2(newa.id);
           }
         }
@@ -337,6 +363,7 @@ export class ListPage implements OnInit {
             console.log(this.api.User)
             this.iii1++;
             newa.onclick = (async) => this.classTask3();
+            this.camera();
           }
         }
       ]
@@ -421,7 +448,7 @@ export class ListPage implements OnInit {
     let doing = document.getElementById('doing2');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: 'Which activity are you working on?',
+      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
 
       buttons: [{
           text: 'Cancel',
@@ -446,6 +473,7 @@ export class ListPage implements OnInit {
             console.log(this.api.User)
             doing.append(newa);
             this.ii2++;
+            this.camera();
             newa.onclick = (async) => this.classAct2(newa.id);
           }
         }
@@ -496,6 +524,8 @@ export class ListPage implements OnInit {
             }
             console.log(this.api.User)
             this.iii2++;
+            this.camera();
+            
             newa.onclick = (async) => this.classAct3();
           }
         }
