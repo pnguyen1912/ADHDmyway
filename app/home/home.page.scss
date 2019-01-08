@@ -1,0 +1,35 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+#main{
+  --background: #fff url('../../assets/city.png') no-repeat center center / cover;
+  height: 50%;
+  // opacity: .8;
+}
+
+// -ion-content {
+//   --background-image: #fff url('../../assets/1.jpg') 
+//   ;
+// }
+
+
+
+
+
+.welcome, .level {
+  --background: white;
+  color: #1e02d8;
+  border-color: #1e02d8;
+  text-align: center;
+}
+
+
+
+.happy, 
+.okay, 
+.mad {
+  --background: white;
+  
+}

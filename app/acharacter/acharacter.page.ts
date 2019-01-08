@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import {Router} from '@angular/router'
-import { ApiService } from '../api.service';
-
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { RestapiService } from '../restapi.service';
 
 @Component({
-  selector: 'app-character',
+  selector: 'app-acharacter',
   templateUrl: './acharacter.page.html',
   styleUrls: ['./acharacter.page.scss'],
 })
-export class AcharacterPage {
+export class AcharacterPage implements OnInit {
 
-  constructor(public api:ApiService, private router: Router) { }
+  constructor(public api: RestapiService, private router: Router) { }
 
-
-
+  ngOnInit() {
+  }
+  
   goNext() {
     let g1 = document.getElementById('g1')
     let g2 = document.getElementById('g2')
@@ -90,4 +90,5 @@ dash() {
     this.router.navigate(['/user']);
 }
 }
+
 

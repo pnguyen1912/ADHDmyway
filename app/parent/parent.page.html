@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Parent</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center;" padding>
+
+  <ion-card>
+    <!-- <ion-button (click) = "newStop()">Watch</ion-button> -->
+    <ion-button (click)="chart() "> Progress</ion-button>
+    <ion-button (click)="emo()">Emotion</ion-button>
+    <ion-button (click)="prog()">Progress</ion-button>
+  </ion-card>
+
+  <ion-card>
+    <h1 id='div1' style="text-align: center;">Welcome back!!!</h1>
+  </ion-card>
+
+  <ion-card>
+    <ion-button (click)="addEvent()">Add Event</ion-button>
+    <ion-button (click)="addMore()">Add more</ion-button>
+    <ion-button (click)="list()">To-Do-List</ion-button>
+    <ion-button (click)="daily()">Daily Goals</ion-button>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime display-format="MM/DD/YYYY"></ion-datetime>
+    </ion-item>
+    
+  </ion-card>
+
+  <ion-card>
+    <ion-button (click)="donate()">Donations</ion-button>
+    <ion-button (click)="settings()">Settings</ion-button>
+  </ion-card>
+
+</ion-content>

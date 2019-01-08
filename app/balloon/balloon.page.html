@@ -1,60 +1,60 @@
 
 
 <body style='background-image: url("assets/candle.jpg");background-repeat: no-repeat;background-size: cover'>
-    <div id='yes' style="text-align:center">
-        
-        <div>
-            <h1 style="color: red;font-size: 50px;font-variant: small-caps;text-shadow: 1.5px 1.5px black">Tap the Ballon</h1>
-        </div>
-        <div id='root'>
-            <div>
-                <button id='changebtn' (click)="showhide()">Show Instruction</button>
-            </div>
-            <div style='display:none' id='list'>
-                <ul>
-                    <li>Wait until the ballon show</li>
-                    <li>Tap on the ballon</li>
-                    <li>Get points</li>
-                </ul>
-            </div>
-        </div>
-        <br>
-        <div id='changebtn1'>
-            <button (click)="dotsh()">Start Game</button>
-        </div>
-        <br><br><div>
-        <div style='display:none' id="dot1" (click)="upcount()">
-            <img src="assets/ballon.png" alt="err">
-        </div>
-        <div style='display:none' id="dot2" (click)="upcount()">
-            <img src="assets/ballon.png" alt="err">
-        </div>
-        <div style='display:none' id="dot3" (click)="upcount()">
-            <img src="assets/ballon.png" alt="err">
-        </div>
-    </div>
-        <b><div style='color:red;text-shadow: .5px .5px black;display:none;position: absolute; bottom: 17%;font-size:30px;font-variant: small-caps;font-size: 20px' id='result'>
+  <div id='yes' style="text-align:center">
+      
+      <div>
+          <h1 style="color: red;font-size: 50px;font-variant: small-caps;text-shadow: 1.5px 1.5px black">Tap the Ballon</h1>
+      </div>
+      <div id='root'>
+          <div>
+              <button id='changebtn' (click)="showhide()">Show Instruction</button>
+          </div>
+          <div style='display:none' id='list'>
+              <ul>
+                  <li>Wait until the ballon show</li>
+                  <li>Tap on the ballon</li>
+                  <li>Get points</li>
+              </ul>
+          </div>
+      </div>
+      <br>
+      <div id='changebtn1'>
+          <button (click)="dotsh()">Start Game</button>
+      </div>
+      <br><br><div>
+      <div style='display:none' id="dot1" (click)="upcount()">
+          <img src="assets/ballon.png" alt="err">
+      </div>
+      <div style='display:none' id="dot2" (click)="upcount()">
+          <img src="assets/ballon.png" alt="err">
+      </div>
+      <div style='display:none' id="dot3" (click)="upcount()">
+          <img src="assets/ballon.png" alt="err">
+      </div>
+  </div>
+      <b><div style='color:red;text-shadow: .5px .5px black;display:none;position: absolute; bottom: 17%;font-size:30px;font-variant: small-caps;font-size: 20px' id='result'>
 
-        </div></b>
-        <div style='display:none; position: absolute;bottom: 7%;' id='newgame'>
-            <h3 style="color:red;text-shadow: .5px .5px black;font-variant: small-caps;">Are you happy with your score?</h3>
-            <button input='Submit' (click)="clickyes()">Yes</button>
-            <button input='Submit' (click)="clickyes()">NO</button>
-        </div>
-        
-    </div>
-    <div id='page2' style="display:none;text-align: center">
-        <h1 style='color:red; text-shadow: .5px .5px black'>Tell me about it</h1>
-        <input style='height: 70px;width: 80' type="text" placeholder="Text here">
-        <br><button (click)="clicksubmit()">Submit</button>
-    </div>
-    <div id='page3' style='display:none;text-align: center'>
-        <h1 style='color:green; text-shadow: .5px .5px black'>Thank you for your input</h1>
-        <br><br><br>
-        <h1 style='color:green; text-shadow: .5px .5px black'>Here is your reward</h1>
-        <h1 id='point' style='color:yellow;font-variant: small-caps; text-shadow: .5px .5px black'></h1>
-    </div>
-    <script src="1.js"></script>
-    <audio id='sound' src="blop.mp3" type="audio/mpeg"></audio>
+      </div></b>
+      <div style='display:none; position: absolute;bottom: 7%;' id='newgame'>
+          <h3 style="color:red;text-shadow: .5px .5px black;font-variant: small-caps;">Are you happy with your score?</h3>
+          <button input='Submit' (click)="clickyes()">Yes</button>
+          <button input='Submit' (click)="clickyes()">NO</button>
+      </div>
+      
+  </div>
+  <div id='page2' style="display:none;text-align: center">
+      <h1 style='color:red; text-shadow: .5px .5px black'>Tell me about it</h1>
+      <input style='height: 70px;width: 80' type="text" placeholder="Text here">
+      <br><button (click)="clicksubmit()">Submit</button>
+  </div>
+  <div id='page3' style='display:none;text-align: center'>
+      <h1 style='color:green; text-shadow: .5px .5px black'>Thank you for your input</h1>
+      <br><br><br>
+      <h1 style='color:green; text-shadow: .5px .5px black'>Here is your reward</h1>
+      <h1 id='point' style='color:yellow;font-variant: small-caps; text-shadow: .5px .5px black'></h1>
+  </div>
+  <script src="1.js"></script>
+  <audio id='sound' src="blop.mp3" type="audio/mpeg"></audio>
 
 </body>

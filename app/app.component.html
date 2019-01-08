@@ -3,22 +3,20 @@
     <ion-menu>
       <ion-header>
         <ion-toolbar>
-          <ion-title>ADHDmyway</ion-title>
+          <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-list>
+        <ion-list >
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+            <ion-item style="height: 60px; text-align: center; font-size: 15px; font-weight: bold; top: 30px; color: #1e02d8" [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
+                
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-          
-          <!-- {{this.api.User.todo[]}} -->
-          <!-- <button (click)='stoptime()'>STOP</button> -->
         </ion-list>
       </ion-content>
     </ion-menu>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Camera,CameraOptions} from '@ionic-native/camera/ngx'
-import { ApiService } from '../api.service';
+import { RestapiService } from '../restapi.service';
+import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
 import { create } from 'domain';
 
 declare var window;
@@ -15,13 +16,35 @@ export class CameraPage implements OnInit {
 
   private base64Image: string; //Image data
 
-  constructor(private api:ApiService, private camera: Camera) { 
+  constructor(private api: RestapiService, private camera: Camera, private photoLibrary: PhotoLibrary) { 
   }
   
   
   
   
   ngOnInit() {
+    // this.photoLibrary.requestAuthorization().then(() => {
+    //   this.photoLibrary.getLibrary().subscribe({
+    //     next: library => {
+    //       library.forEach(function(libraryItem) {
+    //         console.log(libraryItem.id);          // ID of the photo
+    //         console.log(libraryItem.photoURL);    // Cross-platform access to photo
+    //         console.log(libraryItem.thumbnailURL);// Cross-platform access to thumbnail
+    //         console.log(libraryItem.fileName);
+    //         console.log(libraryItem.width);
+    //         console.log(libraryItem.height);
+    //         console.log(libraryItem.creationDate);
+    //         console.log(libraryItem.latitude);
+    //         console.log(libraryItem.longitude);
+    //         console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
+    //       });
+    //     },
+    //     error: err => { console.log('could not get photos'); },
+    //     complete: () => { console.log('done getting photos'); }
+    //   });
+    //   this.photoLibrary.getAlbums();
+    // })
+    // .catch(err => console.log('permissions weren\'t granted'));
     
     let new1 = document.getElementById('new1')
     let new2 = document.getElementById('new2')
@@ -57,6 +80,40 @@ export class CameraPage implements OnInit {
       this.base64Image = window.Ionic.WebView.convertFileSrc(imageData);
       
     },(err) => {console.log(err)} )
+
+    
+
+
   }
+
+
+
+
+  // goToGallery() {
+    // this.photoLibrary.requestAuthorization().then(() => {
+    //   this.photoLibrary.getLibrary().subscribe({
+    //     next: library => {
+    //       library.forEach(function(libraryItem) {
+    //         console.log(libraryItem.id);          // ID of the photo
+    //         console.log(libraryItem.photoURL);    // Cross-platform access to photo
+    //         console.log(libraryItem.thumbnailURL);// Cross-platform access to thumbnail
+    //         console.log(libraryItem.fileName);
+    //         console.log(libraryItem.width);
+    //         console.log(libraryItem.height);
+    //         console.log(libraryItem.creationDate);
+    //         console.log(libraryItem.latitude);
+    //         console.log(libraryItem.longitude);
+    //         console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
+    //       });
+    //     },
+    //     error: err => { console.log('could not get photos'); },
+    //     complete: () => { console.log('done getting photos'); }
+    //   });
+    //   this.photoLibrary.getAlbums();
+    // })
+    // .catch(err => console.log('permissions weren\'t granted'));
+  
+    
+  // }
 
 }

@@ -8,132 +8,136 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="main">
 
 
   <div id='root'>
-  <div class="container1">
-    <h1>Things to do</h1>
-  </div>
-  <ion-card>
-    <div (click)="homework()" class="container">
-      <p class="blue">Homework</p>
-
-    </div>
-  </ion-card>
-  <ion-card>
-    
-    <div (click)="task()" class="container">
-      <p class="blue">Tasks</p>
-    </div>
-  </ion-card>
-  <ion-card>
-    <div (click)="act()" class="container">
-      <p class="blue">Activites</p>
-    </div>
-  </ion-card>
-  <ion-card>
     <div class="container">
-      <p class="blue">Challenges 🔒 </p>
+      <h1>Things to do</h1>
     </div>
-  </ion-card>
-</div>
+    <ion-card class="container1">
+      <div (click)="homework()">
+        <p>Homework</p>
+
+      </div>
+    </ion-card>
+    <ion-card class="container2">
+
+      <div (click)="task()">
+        <p>Tasks</p>
+      </div>
+    </ion-card>
+    <ion-card class="container3">
+      <div (click)="act()">
+        <p>Activites</p>
+      </div>
+    </ion-card>
+    <ion-card class="container4">
+      <div>
+        <p>Challenges 🔒 </p>
+      </div>
+    </ion-card>
+  </div>
 
 
 
   <div id='justhw' style="display:none">
-      <ion-header style="text-align:center">Homework</ion-header>
-        <ion-button  (click)='back()'>Back</ion-button>
-        <ion-card id='todo'>
-          <ion-card-header slot=''>To-do:</ion-card-header>
-          <ion-list>
-            
-          </ion-list>
-        </ion-card>
-        
-     
-        <ion-card id='doing'>
-          <ion-card-header>Doing:</ion-card-header>
-          <ion-list>
-          </ion-list>
-        </ion-card>
-      
-        <ion-card id='done'>
-          <ion-card-header>Done:</ion-card-header>
-          <ion-list>
+    <div class="container">
+      <h1>Homework</h1>
+    </div>
 
-          </ion-list>
-        </ion-card>
+    <ion-card class="todo">
+      <ion-card-title>To-Do:</ion-card-title>
+      <p id='todo'> </p>
+    </ion-card>
 
-        <ion-fab-button class='responisve' (click)='classFunction()'>Add</ion-fab-button>
-   <!-- <button (click)='stoptime()'>STOP</button> -->
+    <ion-card class="doing">
+      <ion-card-title style="color: white;">Doing:</ion-card-title>
+      <div id='doing' style="color: white;">
+      </div>
+    </ion-card>
+
+    <ion-card class="done">
+      <ion-card-title>Done:</ion-card-title>
+      <div id='done'>
+      </div>
+    </ion-card>
+
+    <ion-button (click)='back()'>Back</ion-button>
+    <ion-button (click)='classFunction()'>Add</ion-button>
   </div>
+
+
+
+
 
 
 
 
   <div id='justtask' style="display:none">
-      <ion-header style="text-align:center">Task</ion-header>
-    <ion-slides>
-      <ion-slide>
-        <ion-button (click)='back()'>Back</ion-button>
-        <ion-card id='todo1'>
-          <ion-card-header>To-do:</ion-card-header>
-          <ion-list>
-            
-          </ion-list>
-        </ion-card>
-        <ion-button (click)='classTask()'>Add</ion-button>
-      </ion-slide>
-      <ion-slide>
-        <ion-card id='doing1'>
-          <ion-card-header>Doing:</ion-card-header>
-          <ion-list>
-          </ion-list>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card id='done1'>
-          <ion-card-header>Done:</ion-card-header>
-          <ion-list>
+    <div class="container">
+      <h1>Tasks</h1>
+    </div>
 
-          </ion-list>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
+    <ion-card class="todo">
+      <ion-card-title>To-Do:</ion-card-title>
+      <p id='todo1'> </p>
+    </ion-card>
+
+    <ion-card class="doing">
+      <ion-card-title style="color: white;">Doing:</ion-card-title>
+      <div id='doing1' style="color: white;">
+      </div>
+    </ion-card>
+
+    <ion-card class="done">
+      <ion-card-title>Done:</ion-card-title>
+      <div id='done1'>
+      </div>
+    </ion-card>
+    <ion-button (click)='back()'>Back</ion-button>
+    <ion-button (click)='classTask()'>Add</ion-button>
+
   </div>
+
+
+
+
 
 
 
 
   <div id='justact' style="display:none">
-      <ion-header style="text-align:center">Activity</ion-header>
-    <ion-slides>
-      <ion-slide>
-        <ion-button (click)='back()'>Back</ion-button>
-        <ion-card id='todo2'>
-          <ion-card-header>To-do:</ion-card-header>
-          <ion-list>
-            
-          </ion-list>
-        </ion-card>
-        <ion-button (click)='classAct()'>Add</ion-button>
-      </ion-slide>
-      <ion-slide>
-        <ion-card id='doing2'>
-          <ion-card-header>Doing:</ion-card-header>
-          <ion-list>
-          </ion-list>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card id='done2'>
-          <ion-card-header>Done:</ion-card-header>
-          <ion-list>
+    <div class="container">
+      <h1>Activities</h1>
+    </div>
 
-          </ion-list>
+        <ion-card class="todo">
+          <ion-card-title>To-Do:</ion-card-title>
+          <p id='todo2'></p>
         </ion-card>
-      </ion-slide>
-    </ion-slides>
+
+        <ion-card class="doing">
+          <ion-card-title style="color: white;">Doing:</ion-card-title>
+          <div id='doing2' style="color: white;">
+          </div>
+        </ion-card>
+
+        <ion-card class="done">
+          <ion-card-title>Done:</ion-card-title>
+          <div id='done2'>
+          </div>
+        </ion-card>
+        
+        
+        
+        <ion-button (click)='back()'>Back</ion-button>
+        <ion-button (click)='classAct()'>Add</ion-button>
   </div>
+
+
+
+  <ion-button (click)="addEvent()">Add Event</ion-button>
+  <ion-button (click)="addMore()">View Calendar</ion-button>
+  <ion-button (click)="goToGallery()">View Photos</ion-button>
 </ion-content>

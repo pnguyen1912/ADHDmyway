@@ -1,0 +1,37 @@
+.card-background-page {
+
+    ion-card {
+      position: relative;
+      // text-align: center;
+    }
+  
+    .card-title {
+      position: absolute;
+      top: 10%;
+      font-size: 2.75em;
+      right: -5%;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+  
+    // .card-subtitle {
+    //   font-size: 1.0em;
+    //   position: absolute;
+    //   top: 52%;
+    //   width: 100%;
+    //   color: #fff;
+    // }
+    ion-grid {
+      position: absolute;
+      color: #fff;
+    }
+
+
+  
+  } 
+
+  #main{
+    --background: #fff url('../../assets/city.png') no-repeat center center / cover;
+    height: 50%;
+  }

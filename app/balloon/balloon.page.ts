@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-balloon',
   templateUrl: './balloon.page.html',
   styleUrls: ['./balloon.page.scss'],
 })
-export class BalloonPage  {
+export class BalloonPage implements OnInit {
 
   constructor(public router:Router) { }
+
+  ngOnInit() {
+  }
+
+
+
 
   max =0;
 

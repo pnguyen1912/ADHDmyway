@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { RestapiService } from '../restapi.service';
 // import { HomePage } from '../home/home.page';
 import {Router, Route} from '@angular/router';
 @Component({
@@ -10,7 +10,8 @@ import {Router, Route} from '@angular/router';
 export class UserPage {
 
   constructor(public router:Router,
-      private api:ApiService) { let g1 = document.getElementById('g1')
+      private api: RestapiService) { 
+  let g1 = document.getElementById('g1')
   let g2 = document.getElementById('g2')
   let g3 = document.getElementById('g3')
   let b1 = document.getElementById('b1')

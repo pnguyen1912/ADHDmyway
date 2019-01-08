@@ -3,8 +3,8 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  ApiService
-} from '../api.service';
+  RestapiService
+} from '../restapi.service';
 import {
   Router
 } from '@angular/router';
@@ -13,8 +13,7 @@ import {
 } from '@ionic-native/calendar/ngx';
 import {
   AlertController,
-  Button,
-  Buttons
+
 } from '@ionic/angular';
 
 @Component({
@@ -27,7 +26,7 @@ export class RewardPage implements OnInit {
 
   // public userselect = this.api.User.select;
   constructor(public router: Router,
-    private api: ApiService,
+    private api: RestapiService,
     private calendar: Calendar,
     private alertCtrl: AlertController) {}
 

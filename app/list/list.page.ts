@@ -10,13 +10,61 @@ import {
   AlertController
 } from '@ionic/angular';
 import {
-  ApiService
-} from '../api.service';
+  RestapiService
+} from '../restapi.service';
 import {
   rootRenderNodes
 } from '@angular/core/src/view';
-import {Camera,CameraOptions} from '@ionic-native/camera/ngx';
-import { timer } from 'rxjs';
+import {
+  Camera,
+  CameraOptions
+} from '@ionic-native/camera/ngx';
+
+import {
+  Calendar
+} from '@ionic-native/calendar/ngx';
+import {
+  PhotoLibrary
+} from '@ionic-native/photo-library/ngx';
+
+import {
+  Platform
+} from '@ionic/angular';
+
+
+
+
+
+
+// this.photoLibrary.requestAuthorization().then(() => {
+//   this.photoLibrary.getLibrary().subscribe({
+//     next: library => {
+//       library.forEach(function(libraryItem) {
+//         console.log(libraryItem.id);          // ID of the photo
+//         console.log(libraryItem.photoURL);    // Cross-platform access to photo
+//         console.log(libraryItem.thumbnailURL);// Cross-platform access to thumbnail
+//         console.log(libraryItem.fileName);
+//         console.log(libraryItem.width);
+//         console.log(libraryItem.height);
+//         console.log(libraryItem.creationDate);
+//         console.log(libraryItem.latitude);
+//         console.log(libraryItem.longitude);
+//         console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
+//       });
+//     },
+//     error: err => { console.log('could not get photos'); },
+//     complete: () => { console.log('done getting photos'); }
+//   });
+// })
+// .catch(err => console.log('permissions weren\'t granted'));
+
+
+
+
+
+
+
+
 
 declare var window;
 @Component({
@@ -26,22 +74,11 @@ declare var window;
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
+  // public router: Router;
   private base64Image: string; //Image data
-  constructor(private camera1: Camera,public alertCtrl: AlertController, public api: ApiService, public router:Router,
-    ) {}
-    a : any;
-    time = 0;
-  timer(counttime){
-    this.a = setInterval(()=>{
-      console.log(this.time)
-      this.time = this.time + 1;
-      counttime.innerText = this.time;
-    },1000)
-  }
-
-  stoptime(){
-    clearInterval(this.a)
-  }
+  constructor(private photoLibrary: PhotoLibrary, private camera1: Camera,
+    public alertCtrl: AlertController, public api: RestapiService,
+    private calendar: Calendar, private platform: Platform, private router: Router) {}
 
   public i = 0;
   public ii = 0;
@@ -92,7 +129,6 @@ export class ListPage implements OnInit {
             console.log(this.api.User);
             console.log(newa.id)
             this.i++;
-            newa.setAttribute('style', 'color:red')
 
             newa.onclick = (async) => this.classFunction1(newa.id);
           }
@@ -108,14 +144,13 @@ export class ListPage implements OnInit {
 
   classFunction1(clicked_id) {
     this.presentAlert1(clicked_id);
-
   }
   async presentAlert1(clicked_id) {
     let newa = document.getElementById(clicked_id);
     let doing = document.getElementById('doing');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
+      subHeader: 'Which homework are you working on?',
 
       buttons: [{
           text: 'Cancel',
@@ -129,23 +164,19 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            this.api.User.task.doing[this.ii]= newa.innerText;
-            for (let run = 0; run < this.api.User.task.todo.length;run++){
-              if (this.api.User.task.todo[run] === this.api.User.task.doing[run]){
+
+            this.api.User.task.doing[this.ii] = newa.innerText;
+            for (let run = 0; run < this.api.User.task.todo.length; run++) {
+              if (this.api.User.task.todo[run] === this.api.User.task.doing[run]) {
                 delete this.api.User.task.todo[run]
               }
-            }   
+            }
             console.log(newa.id)
             console.log(this.api.User)
             doing.append(newa);
-            let newtimer = document.createElement('ion-card')
-
-            this.timer(newtimer);
-            doing.append(newtimer)
             this.ii++;
             newa.onclick = (async) => this.classFunction2(newa.id);
             this.camera();
-            
           }
         }
       ]
@@ -155,7 +186,6 @@ export class ListPage implements OnInit {
   }
   classFunction2(clicked_id) {
     this.presentAlert2(clicked_id);
-
   }
   async presentAlert2(clicked_id) {
     let newa = document.getElementById(clicked_id);
@@ -175,7 +205,7 @@ export class ListPage implements OnInit {
 
           text: 'Yes',
           handler: data => {
-            
+
             // this.api.User.task.doing[this.ii]= newa.innerHTML;
             // delete this.api.User.task.todo[Number(newa.id)-1]
             // console.log(newa.id)
@@ -187,26 +217,23 @@ export class ListPage implements OnInit {
             // newa.onclick = (async) => this.classFunction2(newa.id);
 
             // this.myElements.push(newa.id)
-            this.stoptime();
             done.append(newa);
-            this.api.User.task.done[this.iii]= newa.innerHTML;
-            for (let run = 0; run < this.api.User.task.doing.length;run++){
-              if (this.api.User.task.doing[run] === this.api.User.task.done[run]){
+            this.api.User.task.done[this.iii] = newa.innerHTML;
+            for (let run = 0; run < this.api.User.task.doing.length; run++) {
+              if (this.api.User.task.doing[run] === this.api.User.task.done[run]) {
                 delete this.api.User.task.doing[run]
               }
             }
-
             console.log(this.api.User);
             this.camera();
             this.iii++;
             this.router.navigate(['/balloon'])
             newa.onclick = (async) => this.classFunction3();
-
           }
         }
       ]
     })
-    
+
     await alert.present();
   }
   classFunction3() {
@@ -286,7 +313,7 @@ export class ListPage implements OnInit {
     let doing = document.getElementById('doing1');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
+      subHeader: 'Which task are you working on?',
 
       buttons: [{
           text: 'Cancel',
@@ -300,18 +327,17 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            
-            this.api.User.task1.doing[this.ii1]= newa.innerHTML;
-            for (let run = 0; run < this.api.User.task1.todo.length;run++){
-              if (this.api.User.task1.todo[run] === this.api.User.task1.doing[run]){
+
+            this.api.User.task1.doing[this.ii1] = newa.innerHTML;
+            for (let run = 0; run < this.api.User.task1.todo.length; run++) {
+              if (this.api.User.task1.todo[run] === this.api.User.task1.doing[run]) {
                 delete this.api.User.task1.todo[run]
               }
-            }            
+            }
             console.log(newa.id)
             console.log(this.api.User)
             doing.append(newa);
             this.ii1++;
-            this.camera();
             newa.onclick = (async) => this.classTask2(newa.id);
           }
         }
@@ -354,16 +380,15 @@ export class ListPage implements OnInit {
 
             // this.myElements.push(newa.id)
             done.append(newa);
-            this.api.User.task1.done[this.iii1]= newa.innerHTML;
-            for (let run = 0; run < this.api.User.task1.doing.length;run++){
-              if (this.api.User.task1.doing[run] === this.api.User.task1.done[run]){
+            this.api.User.task1.done[this.iii1] = newa.innerHTML;
+            for (let run = 0; run < this.api.User.task1.doing.length; run++) {
+              if (this.api.User.task1.doing[run] === this.api.User.task1.done[run]) {
                 delete this.api.User.task1.doing[run]
               }
             }
             console.log(this.api.User)
             this.iii1++;
             newa.onclick = (async) => this.classTask3();
-            this.camera();
           }
         }
       ]
@@ -448,7 +473,7 @@ export class ListPage implements OnInit {
     let doing = document.getElementById('doing2');
     const alert = await this.alertCtrl.create({
       header: 'Move todo -> doing',
-      subHeader: `Are you working on ${document.getElementById(clicked_id).innerHTML}`,
+      subHeader: 'Which activity are you working on?',
 
       buttons: [{
           text: 'Cancel',
@@ -462,10 +487,10 @@ export class ListPage implements OnInit {
           handler: data => {
 
             // this.myElements.push(newa.id)
-            
-            this.api.User.task2.doing[this.ii2]= newa.innerHTML;
-            for (let run = 0; run < this.api.User.task2.todo.length;run++){
-              if (this.api.User.task2.todo[run] === this.api.User.task2.doing[run]){
+
+            this.api.User.task2.doing[this.ii2] = newa.innerHTML;
+            for (let run = 0; run < this.api.User.task2.todo.length; run++) {
+              if (this.api.User.task2.todo[run] === this.api.User.task2.doing[run]) {
                 delete this.api.User.task2.todo[run]
               }
             }
@@ -473,7 +498,6 @@ export class ListPage implements OnInit {
             console.log(this.api.User)
             doing.append(newa);
             this.ii2++;
-            this.camera();
             newa.onclick = (async) => this.classAct2(newa.id);
           }
         }
@@ -516,16 +540,14 @@ export class ListPage implements OnInit {
 
             // this.myElements.push(newa.id)
             done.append(newa);
-            this.api.User.task2.done[this.iii2]= newa.innerHTML;
-            for (let run = 0; run < this.api.User.task2.doing.length;run++){
-              if (this.api.User.task2.doing[run] === this.api.User.task2.done[run]){
+            this.api.User.task2.done[this.iii2] = newa.innerHTML;
+            for (let run = 0; run < this.api.User.task2.doing.length; run++) {
+              if (this.api.User.task2.doing[run] === this.api.User.task2.done[run]) {
                 delete this.api.User.task2.doing[run]
               }
             }
             console.log(this.api.User)
             this.iii2++;
-            this.camera();
-            
             newa.onclick = (async) => this.classAct3();
           }
         }
@@ -572,23 +594,68 @@ export class ListPage implements OnInit {
 
 
 
-camera(){
-  const option:CameraOptions = {
-    quality: 100,
-    destinationType: this.camera1.DestinationType.FILE_URI,
-    encodingType: this.camera1.EncodingType.JPEG,
-    mediaType: this.camera1.MediaType.PICTURE,
-  }
-  this.camera1.getPicture(option).then((imageData) => {
-    this.base64Image = window.Ionic.WebView.convertFileSrc(imageData);
-    
-  },(err) => {console.log(err)} )
+  camera() {
+    const option: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera1.DestinationType.FILE_URI,
+      encodingType: this.camera1.EncodingType.JPEG,
+      mediaType: this.camera1.MediaType.PICTURE,
+    }
+    this.camera1.getPicture(option).then((imageData) => {
+      this.base64Image = window.Ionic.WebView.convertFileSrc(imageData);
 
-}
+    }, (err) => {
+      console.log(err)
+    })
+
+  }
 
   ngOnInit() {}
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
+
+  addEvent() {
+    this.calendar.createEventInteractively();
+  }
+
+  addMore() {
+    this.calendar.openCalendar(new Date()).then(
+      (msg) => {
+        console.log(msg);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+
+  goToGallery() {
+    this.photoLibrary.requestAuthorization().then(() => {
+        // this.photoLibrary.getLibrary().subscribe({
+        //   next: library => {
+        //     library.forEach(function(libraryItem) {
+        //       console.log(libraryItem.id);          // ID of the photo
+        //       console.log(libraryItem.photoURL);    // Cross-platform access to photo
+        //       console.log(libraryItem.thumbnailURL);// Cross-platform access to thumbnail
+        //       console.log(libraryItem.fileName);
+        //       console.log(libraryItem.width);
+        //       console.log(libraryItem.height);
+        //       console.log(libraryItem.creationDate);
+        //       console.log(libraryItem.latitude);
+        //       console.log(libraryItem.longitude);
+        //       console.log(libraryItem.albumIds);    // array of ids of appropriate AlbumItem, only of includeAlbumsData was used
+        //     });
+        //   },
+        //   error: err => { console.log('could not get photos'); },
+        //   complete: () => { console.log('done getting photos'); }
+        // });
+        this.photoLibrary.getAlbums();
+      })
+      .catch(err => console.log('permissions weren\'t granted'));
+
+
+  }
 }

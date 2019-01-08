@@ -15,158 +15,125 @@ import {
   TextToSpeech
 }
 from '@ionic-native/text-to-speech/ngx'
-import {
+import {  
   text
 } from '@angular/core/src/render3';
-import {
-  ApiService
-} from '../api.service';
+import { RestapiService } from '../restapi.service';
+import { Storage } from '@ionic/storage';
+// import { ApiService } from '../api.service';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  styleUrls: ['home.page.scss'],  
 })
 
 export class HomePage {
+  public dashselect = this.api.User.select;
 
-  constructor(private api: ApiService, 
-    private tts: TextToSpeech, private alertCtrl: AlertController, private toastCtrl: ToastController) {}
-created:boolean = false;
-  ngOnInit() {
+  constructor(private api: RestapiService, private tts: TextToSpeech, 
+            private alertCtrl: AlertController, private toastCtrl: ToastController,
+            private storage: Storage) {
+    
+    // console.log('Morning morning')
+    // let a = setTimeout(() => {
+    //   let div1=document.getElementById('div1')
+    // div1.innerHTML = 'How are you today?';
+    // let btn=document.getElementById('btn');
+    //   btn.style.display = 'inline-block';
+    //   this.tts.speak({
+    //     text: 'How are you today?',
+    //     locale: 'en-US',
+    //     rate: 1.6,
+    //   })  
+    // }, 3000);
+   
+  }
+  created:boolean = false;
+  ngOnInit(){
+    // this.loopArray.push('crazy', 'buddy', 'monkey');
+
+    const loopObject = {
+      crazy: 'happy',
+      buddy: 'monkey',
+      friend: 'thoughts'  
+    };
     let char=document.getElementById('char');
     if (this.created == false){
       let chec = document.createElement('img');
-     if (this.api.User.select == 1) {
+     if (this.dashselect == 1) {
       chec.src = 'assets/girl1.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 2) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 2) {
       chec.src = 'assets/girl2.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 3) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 3) {
       chec.src = 'assets/girl3.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 4) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 4) {
       chec.src = 'assets/boy1.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 5) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 5) {
       chec.src = 'assets/boy2.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 6) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 6) {
       chec.src = 'assets/boy3.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 1) {
-      chec.src = 'assets/girl1g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 2) {
-      chec.src = 'assets/girl2g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 3) {
-      chec.src = 'assets/girl3g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 4) {
-      chec.src = 'assets/boy1g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 5) {
-      chec.src = 'assets/boy2g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.select == 6) {
-      chec.src = 'assets/boy3g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 1) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 11) {
       chec.src = 'assets/girl1b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 2) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 22) {
       chec.src = 'assets/girl2b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 3) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 33) {
       chec.src = 'assets/girl3b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 4) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 44) {
       chec.src = 'assets/boy1b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 5) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 55) {
       chec.src = 'assets/boy2b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.boot == true && this.api.User.select == 6) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 66) {
       chec.src = 'assets/boy3b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 1) {
-      chec.src = 'assets/girl1bg.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 2) {
-      chec.src = 'assets/girl2bg.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 3) {
-      chec.src = 'assets/girl3bg.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 4) {
-      chec.src = 'assets/boy1bg.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 5) {
-      chec.src = 'assets/boy2bg.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.glove == true && this.api.User.boot == true && this.api.User.select == 6) {
-      chec.src = 'assets/boy3bg.png'
-      console.log(this.api.User.select)
-    } 
-    
-    
-    else if (this.api.User.select == 11) {
-      chec.src = 'assets/girl1b.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 22) {
-      chec.src = 'assets/girl2b.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 33) {
-      chec.src = 'assets/girl3b.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 44) {
-      chec.src = 'assets/boy1b.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 55) {
-      chec.src = 'assets/boy2b.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 66) {
-      chec.src = 'assets/boy3b.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 111) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 111) {
       chec.src = 'assets/girl1g.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 222) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 222) {
       chec.src = 'assets/girl2g.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 333) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 333) {
       chec.src = 'assets/girl3g.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 444) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 444) {
       chec.src = 'assets/boy1g.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 555) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 555) {
       chec.src = 'assets/boy2g.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 666) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 666) {
       chec.src = 'assets/boy3g.png'
-      console.log(this.api.User.select)
-    } else if (this.api.User.select == 1111) {
+      console.log(this.dashselect)
+    } else if (this.dashselect == 1111) {
       chec.src = 'assets/girl1bg.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 2222) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 2222) {
       chec.src = 'assets/girl2bg.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 3333) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 3333) {
       chec.src = 'assets/girl3bg.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 4444) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 4444) {
       chec.src = 'assets/boy1bg.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 5555) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 5555) {
       chec.src = 'assets/boy2bg.png'
-      console.log(this.api.User.select)
-    }else if (this.api.User.select == 6666) {
+      console.log(this.dashselect)
+    }else if (this.dashselect == 6666) {
       chec.src = 'assets/boy3bg.png'
-      console.log(this.api.User.select)
+      console.log(this.dashselect)
     }
     char.appendChild(chec)
     char.style.display = 'inline-block';
@@ -180,25 +147,25 @@ created:boolean = false;
     // let b1 = document.getElementById('b1')
     // let b2 = document.getElementById('b2')
     // let b3 = document.getElementById('b3')
-    // if (this.dashselect == 1) {
-    //   g1.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // } else if (this.dashselect == 2) {
-    //   g2.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // } else if (this.dashselect == 3) {
-    //   g3.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // } else if (this.dashselect == 4) {
-    //   b1.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // } else if (this.dashselect == 5) {
-    //   b2.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // } else if (this.dashselect == 6) {
-    //   b3.style.display = 'inline-block';
-    //   console.log(this.dashselect)
-    // }
+    // let g0 = document.getElementById('g0')
+    // if (this.api.User.select == 1){
+    //   g1.style.display = 'block';
+    //   console.log(this.api.User.select)
+    // } else if (this.api.User.select ==2){
+    //   g2.style.display = 'inline-block';console.log(this.api.User.select)
+    // } 
+    //    else if (this.api.User.select ==3){
+    //   g3.style.display = 'inline-block';console.log(this.api.User.select)
+    // } 
+    //    else if (this.api.User.select ==4){
+    //   b1.style.display = 'inline-block';console.log(this.api.User.select)
+    // } 
+    //    else if (this.api.User.select ==5){
+    //   b2.style.display = 'inline-block';console.log(this.api.User.select)
+    // } 
+    //    else if (this.api.User.select ==6){
+    //   b3.style.display = 'inline-block';console.log(this.api.User.select)
+    // } 
     let a = setTimeout(() => {
 
       let div1 = document.getElementById('div1')
@@ -213,20 +180,20 @@ created:boolean = false;
     }, 3000);
   }
 
-  askagain() {
-    let a = setTimeout(() => {
-      let div1 = document.getElementById('div1')
-      div1.innerHTML = 'How are you today?';
-      let btn = document.getElementById('btn');
+ askagain(){
+   let a=setTimeout(()=>{
+     let div1=document.getElementById('div1')
+    div1.innerHTML = 'How are you today?';
+    let btn=document.getElementById('btn');
       btn.style.display = 'inline-block';
       this.tts.speak({
         text: 'How are you today?',
         locale: 'en-US',
         rate: 1.6,
       })
-    }, 10000)
-  }
-
+   },10000)
+ }
+  
   ask() {
     this.tts.speak({
       text: 'How are you today?',
@@ -244,7 +211,7 @@ created:boolean = false;
     const alert = await this.alertCtrl.create({
 
       header: 'I am glad that you are doing good',
-      subHeader: 'Tell me more about it',
+      subHeader:'Tell me more about it',
       inputs: [{
         placeholder: 'Type here'
       }],
@@ -260,8 +227,7 @@ created:boolean = false;
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
-              rate: 1.6,
-            })
+              rate: 1.6,})
             const toast = await this.toastCtrl.create({
               message: 'Thank you for your input',
               duration: 2000,
@@ -280,7 +246,7 @@ created:boolean = false;
       console.log(`smile = ${this.api.User.dailymood.smile}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
-      let btn = document.getElementById('btn');
+      let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
     })
@@ -297,7 +263,7 @@ created:boolean = false;
     const alert = await this.alertCtrl.create({
 
       header: 'I hope your day will get better',
-      subHeader: 'Tell me more about it',
+      subHeader:'Tell me more about it',
       inputs: [{
         placeholder: 'Type here'
       }],
@@ -313,8 +279,7 @@ created:boolean = false;
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
-              rate: 1.6,
-            })
+              rate: 1.6,})
             const toast = await this.toastCtrl.create({
               message: 'Thank you for your input',
               duration: 2000,
@@ -333,7 +298,7 @@ created:boolean = false;
       console.log(`neutral = ${this.api.User.dailymood.neutral}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
-      let btn = document.getElementById('btn');
+      let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
     })
@@ -351,7 +316,7 @@ created:boolean = false;
     const alert = await this.alertCtrl.create({
 
       header: 'What is wrong? I am here to help',
-      subHeader: 'Tell me more about it',
+      subHeader:'Tell me more about it',
       inputs: [{
         placeholder: 'Type here'
       }],
@@ -367,8 +332,7 @@ created:boolean = false;
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
-              rate: 1.6,
-            })
+              rate: 1.6,})
             const toast = await this.toastCtrl.create({
               message: 'Thank you for your input',
               duration: 2000,
@@ -387,11 +351,24 @@ created:boolean = false;
       console.log(`mad = ${this.api.User.dailymood.mad}`)
       let div1 = document.getElementById('div1');
       div1.innerHTML = 'You are great!';
-      let btn = document.getElementById('btn');
+      let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
     })
 
     await alert.present();
   }
+
+  
+
+  testMed() {
+    this.api.test();
+  }
+
+
+
+
+
+
 }
+  

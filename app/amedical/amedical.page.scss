@@ -1,6 +1,9 @@
 ion-content{
     text-align: center;
 }
+ion-input {
+    --placeholder-color: #0039a4;
+}
 
 input[type=text], input[type=password] {
     text-align-last: center;
@@ -13,3 +16,9 @@ input[type=text], input[type=password] {
     border-radius: 50px;
     box-sizing: border-box;
 }    
+
+.below {
+    position: absolute;
+    bottom: 8%;
+    right: 10%;
+}

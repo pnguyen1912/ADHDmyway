@@ -1,6 +1,4 @@
-import {
-  Component
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   Router
 } from '@angular/router'
@@ -13,19 +11,16 @@ import {
 import {ToastController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-alogin',
   templateUrl: './alogin.page.html',
   styleUrls: ['./alogin.page.scss'],
 })
-
-export class AloginPage {
+export class AloginPage implements OnInit {
 
   element: HTMLElement;
   email: string;
   password: string;
-
-
-
+  
   constructor(private router: Router, public cognitoService: CognitoService, public alertCtrl: AlertController,public toastCtrl: ToastController) {
     if (this.cognitoService.getAuthenticatedUser() != null) {
       this.router.navigate(['/home'])
@@ -41,6 +36,8 @@ export class AloginPage {
   }
   };
 
+  ngOnInit() {
+  }
   signUp () {
     let main1 = document.getElementById('main1');
     let main = document.getElementById('main');
@@ -225,7 +222,7 @@ export class AloginPage {
 
 
 
-}
+
 
 
 
@@ -329,3 +326,5 @@ export class AloginPage {
 //   questions12.style.display = "block";
 //   questions13.style.display = "none";
 // }
+
+}

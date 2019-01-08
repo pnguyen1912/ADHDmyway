@@ -11,10 +11,9 @@ export class CognitoService {
     UserPoolId: "us-east-2_o28qLOgCy",
     ClientId: "5d8q11adkbtlsvofefph5t3esg"
   }
+
   public userPool = new AWSCognito.CognitoUserPool(this.pool_data);
-
   constructor() {}
-
   signUp(email, password) {
     return new Promise((resolved, reject) => {
       let userAttribute = [];

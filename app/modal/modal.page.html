@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-button (click) = "dismiss()">Back</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<div id="container" style="display: block;">{{graph}}
+    <!-- <ion-button (click) = "ionViewDidLoad()">Chart</ion-button> -->
+  </div>
+  
+  <ion-card (click) = "ionViewDidLoad()">
+
+    <ion-card-header id="mes" style="display: block">
+        <h1>{{message}}</h1>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-button id="text" style="display: none">
+      {{text}}
+      </ion-button>
+
+  
+  
+  
+
+</ion-content>
