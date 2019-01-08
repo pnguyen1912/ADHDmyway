@@ -4,7 +4,7 @@
 }
 
 #main{
-  --background: #fff url('../../assets/city.png') no-repeat center center / cover;
+  --background: url('../../assets/1.png') no-repeat center center / cover;
   height: 50%;
   // opacity: .8;
 }
@@ -18,7 +18,14 @@
 
 
 
-.welcome, .level {
+.welcome {
+  --background: white;
+  color: #1e02d8;
+  border-color: #1e02d8;
+  text-align: center;
+}
+
+ .level {
   --background: white;
   color: #1e02d8;
   border-color: #1e02d8;

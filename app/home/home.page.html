@@ -10,11 +10,12 @@
 </ion-header>
 
 <ion-content padding id="main">
+  
     <ion-card class="welcome">
         <h1 id='div1' style="text-align: center;">Welcome back</h1>
       </ion-card>
 
-      <ion-buttons id ='btn' style="width:35%;display:inline-block ">
+      <ion-buttons id ='btn' style="width:35%;display:none ">
 
           <ion-card class="happy"><img (click)='showAlertsmile()' src="assets/smiley.png" alt=""></ion-card>
           <ion-card class="okay"><img (click)='showAlertneutral()' src="assets/neutral.png" alt=""></ion-card>
@@ -22,7 +23,8 @@
       
       
         </ion-buttons>
-        <div id='char' style=' width: 180px;float:right;'></div>
+        <div id='char' style=' width: 180px;float:right;'>
+          </div>
         <!-- <img id='g0' style=' width: 170px;float:right;display:block' src="assets/2090.png" alt="err"> -->
         <!-- <img id='g1' style=' width: 200px;float:right;display:none' src="assets/girl1.png" alt="err">
         <img id='g2' style=" width: 200px;float:right;display:none" src="assets/girl2.png" alt="err">
@@ -30,12 +32,13 @@
         <img id='b1' style=" width: 200px;float:right;display:none" src="assets/boy1.png" alt="">
         <img  id='b2' style=" width: 200px;float:right;display:none" src="assets/boy2.png" alt="">
         <img  id='b3' style=" width: 200px;float:right;display:none" src="assets/boy3.png" alt=""> -->
+       
         <ion-card class="level">
-          <h1>Level {{this.api.User.level}} </h1>
-        </ion-card>
-
+            <h1>Level {{this.api.User.level}} </h1>
+          </ion-card>
+      
         
-            <ion-button (click) = "testMed()">Test medical</ion-button>
+            <!-- <ion-button (click) = "testMed()">Test medical</ion-button> -->
 
 
 </ion-content>

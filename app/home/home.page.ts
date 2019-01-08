@@ -52,13 +52,16 @@ export class HomePage {
   }
   created:boolean = false;
   ngOnInit(){
+    
     // this.loopArray.push('crazy', 'buddy', 'monkey');
 
-    const loopObject = {
-      crazy: 'happy',
-      buddy: 'monkey',
-      friend: 'thoughts'  
-    };
+    // const loopObject = {
+    //   crazy: 'happy',
+    //   buddy: 'monkey',
+    //   friend: 'thoughts'  
+    // };
+    let bg = document.getElementById('main');
+    bg.style.backgroundImage = ('assets/2.png')
     let char=document.getElementById('char');
     if (this.created == false){
       let chec = document.createElement('img');
@@ -136,6 +139,7 @@ export class HomePage {
       console.log(this.dashselect)
     }
     char.appendChild(chec)
+    
     char.style.display = 'inline-block';
     this.created = true;
     } else {

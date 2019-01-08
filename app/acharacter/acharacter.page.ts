@@ -87,7 +87,10 @@ goBack() {
 
 
 dash() {
-    this.router.navigate(['/user']);
+    if (this.api.User.stars >0){
+        this.router.navigate(['/home'])}
+        else {
+    this.router.navigate(['/user']);}
 }
 }
 

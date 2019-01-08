@@ -35,6 +35,7 @@ export class ListPage implements OnInit {
     
 
   timer(counttime){
+    counttime.style.color = 'white'
     this.a = setInterval(()=>{
       console.log(this.time)
       this.time = this.time + 1;
@@ -141,10 +142,12 @@ export class ListPage implements OnInit {
             console.log(newa.id)
             console.log(this.api.User)
             doing.append(newa);
-            let newtimer = document.createElement('ion-card')
+            newa.style.color = 'white';
+            // let newtimer = document.createElement('ion-card')
 
-            this.timer(newtimer);
-            doing.append(newtimer)
+            // this.timer(newtimer);
+            
+            // newa.append(newtimer)
             this.ii++;
             newa.onclick = (async) => this.classFunction2(newa.id);
             this.camera();
@@ -192,6 +195,7 @@ export class ListPage implements OnInit {
             // this.myElements.push(newa.id)
             this.stoptime();
             done.append(newa);
+            newa.style.color = 'black'
             this.api.User.task.done[this.iii]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task.doing.length;run++){
               if (this.api.User.task.doing[run] === this.api.User.task.done[run]){

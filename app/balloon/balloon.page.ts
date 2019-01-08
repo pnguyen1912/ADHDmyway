@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {RestapiService} from '../restapi.service'
 @Component({
   selector: 'app-balloon',
   templateUrl: './balloon.page.html',
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class BalloonPage implements OnInit {
 
-  constructor(public router:Router) { }
+  constructor(public router:Router, public api:RestapiService) { }
 
   ngOnInit() {
   }
@@ -133,8 +133,9 @@ clicksubmit() {
     let create1 = document.getElementById('point');
         create1.innerHTML = `+${this.max} ⭐`
     setTimeout(() => {
+        this.api.User.stars = this.api.User.stars + this.max;
       this.router.navigate(['/home'])
-    }, 3000);
+    }, 2000);
 }
 
 

@@ -29,9 +29,7 @@ export class WellPage implements OnInit {
     })
     await alert.present();
   }
-  popalert(){
-      this.moneyAlert();
-  }
+  
   countdown() {
     let count1 = document.getElementById('div111');
     
