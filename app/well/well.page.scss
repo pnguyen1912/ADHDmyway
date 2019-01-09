@@ -1,9 +1,14 @@
 .mainWell  {
-    --background: lightblue;
+    --background: rgba(184, 240, 225, 0.646);
 }
 
 .head {
     text-align: center;
-    --background: lightblue;
-    color: #1e02d8;
+    // --background: lightblue;
+    --color: #1e02d8;
+    background: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+#div11 {
+    font-size: 200px;
 }

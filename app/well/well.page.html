@@ -8,15 +8,11 @@
 </ion-header>
 
 <ion-content padding class="mainWell">
-  <ion-card class="head">
-    <h1>Begin Breathing</h1>
-
-
-    
+  <ion-card class="head"  (click) = "countdown()">
+    <ion-card-title style="color: #1e02d8;">It is time to Relax.</ion-card-title>
+    <h1>Click to inhale</h1>
   </ion-card>
   <div style="text-align: center;">
-      <h1 id='div111'>5</h1>
-  
-  <ion-button (click) = "countdown()">Begin</ion-button>
+      <h1 id='div11'>5</h1>
 </div>
 </ion-content>

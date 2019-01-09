@@ -35,8 +35,14 @@ export class SettingPage implements OnInit {
   }
   logout(){
     this.cognito.getAuthenticatedUser().signOut();
+    this.api.postData();
     this.router.navigate(['/alogin']);
     console.log(this.cognito.getAuthenticatedUser());
   }
+
+  parent() {
+    this.router.navigate(['/parent']);
+  }
+
 
 }

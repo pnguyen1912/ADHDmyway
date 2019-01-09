@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import { CognitoService } from './cognito.service';
+import { maybeQueueResolutionOfComponentResources } from '@angular/core/src/metadata/resource_loading';
 // import {amedical } from '../app/amedical';
 
 @Injectable({
@@ -51,6 +52,10 @@ export class RestapiService {
   // checkedGender: {},
 
   // }
+
+  public iii = 0;
+  public iii1 = 0;
+  public iii2 = 0;
 
   SelectedValue: any;
   checkedItems: any;
@@ -163,8 +168,8 @@ export class RestapiService {
     
   }
   constructor(private cognitoService:CognitoService,private http: HttpClient) {
-    this.getData();
-    console.log(this.User)
+    // this.getData();
+    // console.log(this.User)
   }
 
   
@@ -174,7 +179,7 @@ export class RestapiService {
       console.log("user is null");
       return;
     }
-
+    
     myUser.getSession((err, session) => {
       if(err) {
         console.log("get error: ", err);
@@ -212,6 +217,7 @@ export class RestapiService {
       }, err => {
         console.log("get error: ", err);
       });
+
     })
   }
 
@@ -261,6 +267,7 @@ export class RestapiService {
       }, err => {
         console.log("post error: ", err);
       });
+      
     });
 
   }
