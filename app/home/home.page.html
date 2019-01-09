@@ -12,8 +12,7 @@
 <ion-content padding id="main">
   
     <ion-card class="welcome">
-        <h2 id='div1' style="text-align: center;">Welcome back, {{this.username}}<br>
-        Level: {{this.api.User.level}}</h2>
+        <h2 id='div1' style="text-align: center;">Welcome back, {{this.username}}</h2>
       </ion-card>
 
       <ion-buttons id ='btn' style="width:35%;display:none ">
@@ -39,7 +38,8 @@
         <img  id='b2' style=" width: 200px;float:right;display:none" src="assets/boy2.png" alt="">
         <img  id='b3' style=" width: 200px;float:right;display:none" src="assets/boy3.png" alt=""> -->
        
-        
+        <ion-card class='level'><h2>
+          Level: {{this.api.User.level}}</h2></ion-card>
         
             <!-- <ion-button (click) = "testMed()">Test medical</ion-button> -->
 

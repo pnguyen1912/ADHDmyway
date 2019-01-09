@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import * as HighCharts from 'highcharts';
 import {Router } from '@angular/router';
+import {RestapiService} from '../restapi.service';
 
 
 @Component({
@@ -11,39 +12,10 @@ import {Router } from '@angular/router';
 })
 export class ChartPage implements OnInit {
 
-  constructor(public navCtrl: NavController, private router: Router) { }
+  name: "Name"; 
+  constructor(private api: RestapiService, public navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
-    // let myChart = document.getElementById('container');
-
-    //  let myChart = HighCharts.chart('container', {
-    //   chart: {
-    //     type: 'bar'
-    //   },  
-    //   title: {
-    //     text: 'Users progress'
-    //   },
-    //   xAxis: {
-    //     categories: ['Homework', 'Tasks', 'Challenges']
-    //   },
-    //   yAxis: {
-    //     title: {
-    //       text: 'Times A Week'
-    //     }
-    //   },
-    //   series: [{
-    //     name: 'Chip',
-    //     data: [5, 1, 1]
-    //   }, 
-    // ]
-    // });
-  }
-
-  back() {
-    this.router.navigate(['/parent']);
-  }
-
-  ionViewDidLoad() {
     // let myChart = document.getElementById('container');
 
      let myChart = HighCharts.chart('container', {
@@ -51,10 +23,10 @@ export class ChartPage implements OnInit {
         type: 'bar'
       },  
       title: {
-        text: 'Progress'
+        text: 'Users progress'
       },
       xAxis: {
-        categories: ['HomeWork', 'Tasks', 'Challenges']
+        categories: ['Homework', 'Tasks', 'Challenges']
       },
       yAxis: {
         title: {
@@ -63,11 +35,41 @@ export class ChartPage implements OnInit {
       },
     //   series: [{
     //     name: 'Chip',
-    //     data: [5, 1, 1]
+    //     data: [this.api.iii, this.api.iii1, this.api.iii2] 
     //   }, 
     // ]
     });
   }
+
+  back() {
+    this.router.navigate(['/parent']);
+  }
+
+  // ionViewDidLoad() {
+  //   // let myChart = document.getElementById('container');
+
+  //    let myChart = HighCharts.chart('container', {
+  //     chart: {
+  //       type: 'bar'
+  //     },  
+  //     title: {
+  //       text: 'Progress'
+  //     },
+  //     xAxis: {
+  //       categories: ['HomeWork', 'Tasks', 'Challenges']
+  //     },
+  //     yAxis: {
+  //       title: {
+  //         text: 'Times A Week'
+  //       }
+  //     },
+  //   //   series: [{
+  //   //     name: 'Chip',
+  //   //     data: [5, 1, 1]
+  //   //   }, 
+  //   // ]
+  //   });
+  // }
 
   
 

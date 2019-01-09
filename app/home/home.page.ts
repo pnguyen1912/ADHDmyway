@@ -252,7 +252,7 @@ export class HomePage {
       this.api.User.dailymood.smile++;
       console.log(`smile = ${this.api.User.dailymood.smile}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = `Level : ${this.api.User.level}`;
+      div1.innerHTML = `Great!`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
@@ -304,7 +304,7 @@ export class HomePage {
       this.api.User.dailymood.neutral++
       console.log(`neutral = ${this.api.User.dailymood.neutral}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = `Level : ${this.api.User.level}`;
+      div1.innerHTML = `What's wrong? I am here to help`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
@@ -357,7 +357,7 @@ export class HomePage {
       this.api.User.dailymood.mad++
       console.log(`mad = ${this.api.User.dailymood.mad}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = `Level : ${this.api.User.level}`;
+      div1.innerHTML = `Hope your day will get better`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();

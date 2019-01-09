@@ -43,9 +43,18 @@ export class ParentPage {
     return await modal.present();
   }
 
-  settings() {
-    this.router.navigate(['/setting'])
+
+  emotion() {
+    this.router.navigate(['/report']);
   }
+  progress() {
+    this.router.navigate(['/chart']);
+  }
+
+
+
+
+
 
   addEvent () {
     this.calendar.createEventInteractively();
@@ -58,8 +67,12 @@ export class ParentPage {
   );
 }
 
-  chart() {
-    this.router.navigate(['/chart']);
+
+  list() {
+    this.router.navigate(['/list']);
+  }
+  settings() {
+    this.router.navigate(['/setting'])
   }
 
 

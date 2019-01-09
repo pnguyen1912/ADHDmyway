@@ -5,29 +5,35 @@
 </ion-header>
 
 <ion-content style="text-align: center;" padding>
-
   <ion-card>
-    <!-- <ion-button (click) = "newStop()">Watch</ion-button> -->
-    <ion-button (click)="chart() "> Progress</ion-button>
-    <ion-button (click)="emo()">Emotion</ion-button>
-    <ion-button (click)="prog()">Progress</ion-button>
+    <ion-card-title id='div1' class="welcome">Welcome back!!!</ion-card-title>
   </ion-card>
 
-  <ion-card>
-    <h1 id='div1' style="text-align: center;">Welcome back!!!</h1>
-  </ion-card>
+
+
 
   <ion-card>
+<h1> User's Reports</h1>
+    <ion-button (click)="emotion() "> Emotion</ion-button>
+    <ion-button (click)="progress()">Progress</ion-button>
+    <br>
+    <!-- <ion-button (click)="emo()">Emotion</ion-button>
+    <ion-button (click)="prog()">Progress</ion-button> -->
+  </ion-card>
+
+  
+
+  <ion-card>
+    <h1>User's Schedule</h1>
     <ion-button (click)="addEvent()">Add Event</ion-button>
-    <ion-button (click)="addMore()">Add more</ion-button>
+    <ion-button (click)="addMore()">View Calendar</ion-button>
     <ion-button (click)="list()">To-Do-List</ion-button>
-    <ion-button (click)="daily()">Daily Goals</ion-button>
+    <!-- <ion-button (click)="daily()">Daily Goals</ion-button> -->
 
     <ion-item>
       <ion-label>Date</ion-label>
       <ion-datetime display-format="MM/DD/YYYY"></ion-datetime>
     </ion-item>
-    
   </ion-card>
 
   <ion-card>
@@ -35,4 +41,4 @@
     <ion-button (click)="settings()">Settings</ion-button>
   </ion-card>
 
-</ion-content>
+</ion-content>  

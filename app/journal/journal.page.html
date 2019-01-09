@@ -40,15 +40,9 @@
           <ion-label>Todo</ion-label>
           <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
         </ion-item> -->
+        
   <h1>Add any personal notes here</h1>
-  <!-- <ion-input required type='text' [(ngModel)]='inputStuff'></ion-input>
-  <ion-button (click)="saveVariable()">Save</ion-button>
-
-  <ion-button (click)="getVariable()">Get</ion-button>
-  <ion-item>
-    <ion-label>{{showData}}</ion-label>
-  </ion-item>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>{{showData1}}</ion-label>
   </ion-item>
   <ion-item>
@@ -63,9 +57,18 @@
   <ion-item *ngFor="let y of loopObjectValues">Word on the streets {{y}}</ion-item> -->
 
 
-  <div id='page2' style="text-align: center">
-    <input style='height: 150px; width: 100%' type="text" placeholder="Tell me more about your day!">
+  <!-- <div class="page2">
+    <ion-input type="text" placeholder="Tell me more about your day!"></ion-input>
     <br><ion-button (click)="clicksubmit()">Submit</ion-button>
-</div>
+</div> -->
+
+
+<ion-input required type='text' placeholder="Tell me more about your day!" [(ngModel)]='inputStuff'></ion-input>
+<ion-button (click)="saveVariable()">Submit</ion-button>
+<br><br><br><br><br><br>
+<ion-button (click)="getVariable()">Get</ion-button>
+<ion-item>
+  <ion-label>{{showData}}</ion-label>
+</ion-item>
 
 </ion-content>

@@ -49,7 +49,7 @@ export class ListPage implements OnInit {
 
   public i = 0;
   public ii = 0;
-  public iii = 0;
+  // public iii = 0;
 
   public id1 = 0;
   classFunction() {
@@ -196,7 +196,7 @@ export class ListPage implements OnInit {
             this.stoptime();
             done.append(newa);
             newa.style.color = 'black'
-            this.api.User.task.done[this.iii]= newa.innerHTML;
+            this.api.User.task.done[this.api.iii]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task.doing.length;run++){
               if (this.api.User.task.doing[run] === this.api.User.task.done[run]){
                 delete this.api.User.task.doing[run]
@@ -205,7 +205,7 @@ export class ListPage implements OnInit {
 
             console.log(this.api.User);
             this.camera();
-            this.iii++;
+            this.api.iii++;
             this.router.navigate(['/balloon'])
             newa.onclick = (async) => this.classFunction3();
 
@@ -227,7 +227,7 @@ export class ListPage implements OnInit {
 
   public i1 = 0;
   public ii1 = 0;
-  public iii1 = 0;
+  // public iii1 = 0;
 
   classTask() {
     this.presentAlert4();
@@ -361,14 +361,14 @@ export class ListPage implements OnInit {
 
             // this.myElements.push(newa.id)
             done.append(newa);
-            this.api.User.task1.done[this.iii1]= newa.innerHTML;
+            this.api.User.task1.done[this.api.iii1]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task1.doing.length;run++){
               if (this.api.User.task1.doing[run] === this.api.User.task1.done[run]){
                 delete this.api.User.task1.doing[run]
               }
             }
             console.log(this.api.User)
-            this.iii1++;
+            this.api.iii1++;
             newa.onclick = (async) => this.classTask3();
             this.camera();
           }
@@ -389,7 +389,7 @@ export class ListPage implements OnInit {
 
   public i2 = 0;
   public ii2 = 0;
-  public iii2 = 0;
+  // public iii2 = 0;
 
   classAct() {
     this.presentAlert7();
@@ -523,14 +523,14 @@ export class ListPage implements OnInit {
 
             // this.myElements.push(newa.id)
             done.append(newa);
-            this.api.User.task2.done[this.iii2]= newa.innerHTML;
+            this.api.User.task2.done[this.api.iii2]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task2.doing.length;run++){
               if (this.api.User.task2.doing[run] === this.api.User.task2.done[run]){
                 delete this.api.User.task2.doing[run]
               }
             }
             console.log(this.api.User)
-            this.iii2++;
+            this.api.iii2++;
             this.camera();
             
             newa.onclick = (async) => this.classAct3();
