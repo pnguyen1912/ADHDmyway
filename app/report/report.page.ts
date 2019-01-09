@@ -5,6 +5,7 @@ import {Router } from '@angular/router';
 import {
   RestapiService
 } from '../restapi.service';
+import { CognitoService } from '../cognito.service';
 
 @Component({
   selector: 'app-report',
@@ -12,13 +13,17 @@ import {
   styleUrls: ['./report.page.scss'],
 })
 export class ReportPage implements OnInit {
-  name: "Name";
-  constructor(public navCtrl: NavController, private router: Router, private api: RestapiService) { }
+  // name: "Name";
 
+
+  constructor(
+    public cog:CognitoService,
+    public navCtrl: NavController, private router: Router, private api: RestapiService) { }
+newnew = this.cog.getAuthenticatedUser().getUsername();
   ngOnInit() {
     // let myChart = document.getElementById('container');
 
-     let myChart = HighCharts.chart('container', {
+     HighCharts.chart('container', {
       chart: {
         type: 'bar'
       },  
@@ -30,9 +35,13 @@ export class ReportPage implements OnInit {
       },
       yAxis: {
         title: {
-          text: 'Times A Week'
+          text: 'Times this Week'
         }
       },
+      // series: [{
+      //   name: this.newnew,
+      //   data: [this.api.User.dailymood.smile, this.api.User.dailymood.neutral, this.api.User.dailymood.mad]
+      // }]
     //   series: [{
     //     name: 'Cesar',
     //     data: [this.api.User.dailymood.smile, this.api.User.dailymood.neutral, this.api.User.dailymood.mad],

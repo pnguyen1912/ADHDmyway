@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient,HttpHeaders} from '@angular/common/http'
+import { CognitoService } from './cognito.service';
 // import {amedical } from '../app/amedical';
 
 @Injectable({
@@ -119,7 +120,7 @@ export class RestapiService {
 
   }
 
-
+  public _data:any;
 
 
 
@@ -134,7 +135,7 @@ export class RestapiService {
 
   public User = {
     select: 1,
-    stars: 3000,
+    stars: 0,
     level: 1,
     boot: false,
     glove: false,
@@ -158,20 +159,110 @@ export class RestapiService {
       todo: [],
       doing: [],
       done: [],
-    },
+    }
     
   }
-  constructor(private http: HttpClient) {}
+  constructor(private cognitoService:CognitoService,private http: HttpClient) {
+    this.getData();
+    console.log(this.User)
+  }
 
-  getMethod(endpoint: string) {
-    this.http.get('https://ghibliapi.herokuapp.com/' + endpoint)
-      .subscribe((data) => {
-        console.log(data);
-        return data;
-      }, (err) => {
-        console.log(err);
-        return err;
-      })
+  
+  getData(){
+    let myUser = this.cognitoService.getAuthenticatedUser();
+    if (myUser === null) {
+      console.log("user is null");
+      return;
+    }
+
+    myUser.getSession((err, session) => {
+      if(err) {
+        console.log("get error: ", err);
+        return;
+      }
+      console.log('get session: ', session);
+      
+      const token = session['idToken']['jwtToken']; // session.getIdToken().getJwtToken();
+      console.info('get token: ', token);
+
+      // let myHeaders = new HttpHeaders({
+      //  "Content-Type": "application/json",
+      //  "Authorization": token
+      //});
+
+      //console.log('post headers', myHeaders);
+      let postmoreData = {
+        'Email': myUser.getUsername(),
+      }
+      
+    // https://499adbe4a1.execute-api.us-east-2.amazonaws.com/dev/postToTable
+      this.http.post('https://ceo7e027k2.execute-api.us-east-2.amazonaws.com/newtestStage/Realgetdata',JSON.stringify(postmoreData))
+      .subscribe( response => {
+        this._data = response;
+        console.log("get success: ", this._data);
+        this.User.select = this._data.Item.User.M.select.N;
+        this.User.level = this._data.Item.User.M.level.N;
+        this.User.stars = this._data.Item.User.M.stars.N;
+        this.User.boot = this._data.Item.User.M.boot.BOOL;
+        this.User.glove = this._data.Item.User.M.glove.BOOL;
+        this.User.dailymood.mad = this._data.Item.User.M.dailymood.M.mad.N;
+        this.User.dailymood.neutral = this._data.Item.User.M.dailymood.M.neutral.N;
+        this.User.dailymood.smile = this._data.Item.User.M.dailymood.M.smile.N;
+       console.log(this.User)
+      }, err => {
+        console.log("get error: ", err);
+      });
+    })
+  }
+
+
+
+
+  postData() {
+    let myUser = this.cognitoService.getAuthenticatedUser();
+    if (myUser === null) {
+      console.log("user is null");
+      return;
+    }
+
+    myUser.getSession((err, session) => {
+      if(err) {
+        console.log("post error: ", err);
+        return;
+      }
+      console.log('post session: ', session);
+      
+      const token = session['idToken']['jwtToken']; // session.getIdToken().getJwtToken();
+      console.info('post token: ', token);
+
+      let myHeaders = new HttpHeaders({
+       "Content-Type": "application/json",
+       "Authorization": token
+      });
+
+      //console.log('post headers', myHeaders);
+
+      let postData = {
+        'Email': myUser.getUsername(),
+        
+        // 'select': this.User.select,
+        // 'stars': this.User.stars,
+        // 'level': this.User.level,
+        // 'boot': false,
+        // 'glove': false,
+       'User' : this.User 
+      }
+      console.log("postdata: ", postData);
+    // https://499adbe4a1.execute-api.us-east-2.amazonaws.com/dev/postToTable
+      this.http.post('https://ceo7e027k2.execute-api.us-east-2.amazonaws.com/newtestStage/petfood', JSON.stringify(postData),
+      {headers : myHeaders})
+      .subscribe( response => {
+        console.log("post success: ", response);
+      }, err => {
+        console.log("post error: ", err);
+      });
+    });
+
   }
 
   gibi(msg: string) {

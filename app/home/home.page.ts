@@ -20,6 +20,7 @@ import {
 } from '@angular/core/src/render3';
 import { RestapiService } from '../restapi.service';
 import { Storage } from '@ionic/storage';
+import { CognitoService } from '../cognito.service';
 // import { ApiService } from '../api.service';
 
 
@@ -32,27 +33,29 @@ import { Storage } from '@ionic/storage';
 export class HomePage {
   public dashselect = this.api.User.select;
 
-  constructor(private api: RestapiService, private tts: TextToSpeech, 
+  constructor(
+    private cog: CognitoService,
+    private api: RestapiService, private tts: TextToSpeech, 
             private alertCtrl: AlertController, private toastCtrl: ToastController,
             private storage: Storage) {
-    
-    // console.log('Morning morning')
-    // let a = setTimeout(() => {
-    //   let div1=document.getElementById('div1')
-    // div1.innerHTML = 'How are you today?';
-    // let btn=document.getElementById('btn');
-    //   btn.style.display = 'inline-block';
-    //   this.tts.speak({
-    //     text: 'How are you today?',
-    //     locale: 'en-US',
-    //     rate: 1.6,
-    //   })  
-    // }, 3000);
-   
-  }
+              // console.log('Morning morning')
+              // let a = setTimeout(() => {
+                //   let div1=document.getElementById('div1')
+                // div1.innerHTML = 'How are you today?';
+                // let btn=document.getElementById('btn');
+                //   btn.style.display = 'inline-block';
+                //   this.tts.speak({
+                  //     text: 'How are you today?',
+                  //     locale: 'en-US',
+                  //     rate: 1.6,
+                  //   })  
+                  // }, 3000);
+                  
+                }
+                username = this.cog.getAuthenticatedUser().getUsername();
   created:boolean = false;
   ngOnInit(){
-    
+
     // this.loopArray.push('crazy', 'buddy', 'monkey');
 
     // const loopObject = {
@@ -249,7 +252,7 @@ export class HomePage {
       this.api.User.dailymood.smile++;
       console.log(`smile = ${this.api.User.dailymood.smile}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = 'You are great!';
+      div1.innerHTML = `Level : ${this.api.User.level}`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
@@ -301,7 +304,7 @@ export class HomePage {
       this.api.User.dailymood.neutral++
       console.log(`neutral = ${this.api.User.dailymood.neutral}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = 'You are great!';
+      div1.innerHTML = `Level : ${this.api.User.level}`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();
@@ -354,7 +357,7 @@ export class HomePage {
       this.api.User.dailymood.mad++
       console.log(`mad = ${this.api.User.dailymood.mad}`)
       let div1 = document.getElementById('div1');
-      div1.innerHTML = 'You are great!';
+      div1.innerHTML = `Level : ${this.api.User.level}`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
       this.askagain();

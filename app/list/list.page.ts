@@ -592,7 +592,12 @@ camera(){
   },(err) => {console.log(err)} )
 
 }
-
+addEvent(){
+  this.api.postData();
+}
+goToGallery(){
+  this.api.getData()
+}
   ngOnInit() {}
   // add back when alpha.4 is out
   // navigate(item) {
