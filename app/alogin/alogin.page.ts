@@ -9,6 +9,7 @@ import {
   AlertController
 } from '@ionic/angular';
 import {ToastController} from '@ionic/angular';
+import { RestapiService } from '../restapi.service';
 
 @Component({
   selector: 'app-alogin',
@@ -21,9 +22,14 @@ export class AloginPage implements OnInit {
   email: string;
   password: string;
   
-  constructor(private router: Router, public cognitoService: CognitoService, public alertCtrl: AlertController,public toastCtrl: ToastController) {
+  constructor(public api:RestapiService,
+    private router: Router, public cognitoService: CognitoService, public alertCtrl: AlertController,public toastCtrl: ToastController) {
     if (this.cognitoService.getAuthenticatedUser() != null) {
-      this.router.navigate(['/home'])
+this.api.getData();
+setTimeout(() => {
+  this.router.navigate(['/home'])
+  
+}, 1000);
       console.log(this.cognitoService.getAuthenticatedUser())
       this.cognitoService.getAuthenticatedUser().getSession(function(err, session) {
           if (err) {
@@ -67,7 +73,11 @@ export class AloginPage implements OnInit {
       console.log("User logged in");
       console.log(res);
       console.log(res['idToken']['jwtToken']);
-      this.router.navigate(['/home'])
+      this.api.getData();
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+        
+      }, 1000);
   
       this.presentToast();
     }, (err) => {
