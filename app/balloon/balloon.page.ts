@@ -16,14 +16,14 @@ export class BalloonPage implements OnInit {
 
 
 
-  max =0;
+  
 
   // Keep and display the score
   count = 0;
   upcount() {
   this.count++;
-  if (this.count >this.max){
-    this.max=this.count
+  if (this.count >this.api.User.ballonmax){
+    this.api.User.ballonmax=this.count
   }
   // let sound = document.getElementById("sound");
   // sound.play();
@@ -45,12 +45,12 @@ export class BalloonPage implements OnInit {
 dotsh() {
     let hidebtn = document.getElementById('changebtn1');
     let hidebtn1 = document.getElementById('root');
-    var z = setInterval(function () {
+    // var z = setInterval(function () {
         hidebtn.style.display = 'none'
-    }, 1);
-    var y = setInterval(function () {
+    // }, 1);
+    // var y = setInterval(function () {
         hidebtn1.style.display = 'none'
-    }, 1);
+    // }, 1);
     
     var a = setInterval(function () {
         let dot = document.getElementById('dot1');
@@ -86,21 +86,21 @@ dotsh() {
     setTimeout(function () {
         clearInterval(c);
     }, 5000);
-    setTimeout(function () {
-        clearInterval(z);
-    }, 5000);
-    setTimeout(function () {
-        clearInterval(y);
-    }, 5000);
+    // setTimeout(function () {
+    //     clearInterval(z);
+    // }, 5000);
+    // setTimeout(function () {
+    //     clearInterval(y);
+    // }, 5000);
 
     var d = setInterval(function () {
 
-        let create = document.getElementById('result');
-        create.innerHTML = `YOUR SCORE ${this.count} <br>
-        HIGH SCORE: ${this.max}`;
-        create.style.display = 'block';
-        hidebtn.style.display = 'block';
-        hidebtn1.style.display = 'block';
+        // let create = document.getElementById('result');
+        // create.innerHTML = `YOUR SCORE ${this.count} <br>
+        // HIGH SCORE: ${this.max}`;
+        // create.style.display = 'block';
+        // hidebtn.style.display = 'block';
+        // hidebtn1.style.display = 'block';
         
         if (this.count > 0) {
           this.count = 0
@@ -131,9 +131,9 @@ clicksubmit() {
     let page2 = document.getElementById('page2');
     page2.style.display = 'none';
     let create1 = document.getElementById('point');
-        create1.innerHTML = `+${this.max} ⭐`
+        create1.innerHTML = `+${this.count} ⭐`
     setTimeout(() => {
-        this.api.User.stars = this.api.User.stars + this.max;
+        this.api.User.stars = this.api.User.stars + this.count;
       this.router.navigate(['/home'])
     }, 2000);
 }

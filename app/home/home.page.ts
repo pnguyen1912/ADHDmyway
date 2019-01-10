@@ -55,7 +55,6 @@ export class HomePage {
                 username = this.cog.getAuthenticatedUser().getUsername();
   created:boolean = false;
   ngOnInit(){
-
     // this.loopArray.push('crazy', 'buddy', 'monkey');
 
     // const loopObject = {
@@ -63,8 +62,8 @@ export class HomePage {
     //   buddy: 'monkey',
     //   friend: 'thoughts'  
     // };
-    let bg = document.getElementById('main');
-    bg.style.backgroundImage = ('assets/2.png')
+    // let bg = document.getElementById('main');
+    // bg.style.backgroundImage = ('assets/2.png')
     let char=document.getElementById('char');
     if (this.created == false){
       let chec = document.createElement('img');
@@ -175,7 +174,7 @@ export class HomePage {
     // } 
     let a = setTimeout(() => {
 
-      let div1 = document.getElementById('div1')
+      let div1 = document.getElementById('div111')
       div1.innerHTML = 'How are you today?';
       let btn = document.getElementById('btn');
       btn.style.display = 'inline-block';
@@ -184,7 +183,7 @@ export class HomePage {
         locale: 'en-US',
         rate: 1.6,
       })
-    }, 3000);
+    }, 5000);
   }
 
  askagain(){

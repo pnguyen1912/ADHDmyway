@@ -28,7 +28,9 @@ export class ListPage implements OnInit {
   private selectedItem: any;
   private base64Image: string; //Image data
   constructor(private camera1: Camera,public alertCtrl: AlertController, public api: RestapiService, public router:Router,
-    ) {}
+    ) {
+      
+    }
     a : any;
     time = 0;
 
@@ -49,7 +51,7 @@ export class ListPage implements OnInit {
 
   public i = 0;
   public ii = 0;
-  // public iii = 0;
+  public iii = 0;
 
   public id1 = 0;
   classFunction() {
@@ -196,7 +198,7 @@ export class ListPage implements OnInit {
             this.stoptime();
             done.append(newa);
             newa.style.color = 'black'
-            this.api.User.task.done[this.api.iii]= newa.innerHTML;
+            this.api.User.task.done[this.iii]= newa.innerHTML;
             for (let run = 0; run < this.api.User.task.doing.length;run++){
               if (this.api.User.task.doing[run] === this.api.User.task.done[run]){
                 delete this.api.User.task.doing[run]
@@ -205,7 +207,9 @@ export class ListPage implements OnInit {
 
             console.log(this.api.User);
             this.camera();
-            this.api.iii++;
+            this.api.iii = this.iii;
+            this.iii++;
+            this.unlock();
             this.router.navigate(['/balloon'])
             newa.onclick = (async) => this.classFunction3();
 
@@ -598,7 +602,15 @@ addEvent(){
 goToGallery(){
   this.api.getData()
 }
-  ngOnInit() {}
+unlock(){if (this.api.User.task.done.length >= 3 || this.api.User.task1.done.length >= 3 || this.api.User.task2.done.length >= 3){
+    document.getElementById('challenges').innerText= 'Challenges'
+}}
+  ngOnInit() {
+   if ( document.getElementById('justhw').style.display == 'none' ||
+    document.getElementById('justtask').style.display == 'none'||
+    document.getElementById('justact').style.display == 'none'){
+    document.getElementById('root').style.display = 'block';}
+  }
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
