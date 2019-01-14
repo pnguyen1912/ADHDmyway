@@ -4,6 +4,7 @@ import {Camera,CameraOptions} from '@ionic-native/camera/ngx'
 import { RestapiService } from '../restapi.service';
 import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
 import { create } from 'domain';
+import {Router} from '@angular/router';
 
 declare var window;
 
@@ -16,7 +17,8 @@ export class CameraPage implements OnInit {
 
   private base64Image: string; //Image data
 
-  constructor(private api: RestapiService, private camera: Camera, private photoLibrary: PhotoLibrary) { 
+  constructor(private api: RestapiService, private camera: Camera, private photoLibrary: PhotoLibrary,
+              private router: Router) { 
   }
   
   
@@ -86,7 +88,12 @@ export class CameraPage implements OnInit {
 
   }
 
+  goToHome () { if (this.api.User.level < 10){
+    this.router.navigate(['/home'])}
+    else if (this.api.User.level >= 10 ) {
 
+    this.router.navigate(['/home1'])}
+  }
 
 
   // goToGallery() {

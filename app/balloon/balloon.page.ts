@@ -129,13 +129,14 @@ clicksubmit() {
     let submit = document.getElementById('page3');
     submit.style.display = 'block';
     let page2 = document.getElementById('page2');
+    this.api.User.stars = this.api.User.stars + this.count;
+    this.api.User.experience = this.api.User.experience +100;
     page2.style.display = 'none';
     let create1 = document.getElementById('point');
-        create1.innerHTML = `+${this.count} ⭐`
+        create1.innerHTML = `+⭐${this.count}  <br><br> + 100 XP`
     setTimeout(() => {
-        this.api.User.stars = this.api.User.stars + this.count;
       this.router.navigate(['/home'])
-    }, 2000);
+    }, 5000);
 }
 
 

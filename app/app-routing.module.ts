@@ -65,7 +65,11 @@ const routes: Routes = [{
   { path: 'test', loadChildren: './test/test.module#TestPageModule' },
   { path: 'well', loadChildren: './well/well.module#WellPageModule' },
   { path: 'journal', loadChildren: './journal/journal.module#JournalPageModule' },
-  { path: 'balloon', loadChildren: './balloon/balloon.module#BalloonPageModule' }
+  { path: 'balloon', loadChildren: './balloon/balloon.module#BalloonPageModule' },
+  { path: 'tic-tac-toe', loadChildren: './tic-tac-toe/tic-tac-toe.module#TicTacToePageModule' },
+  { path: 'decipher', loadChildren: './decipher/decipher.module#DecipherPageModule' },
+  { path: 'hangman', loadChildren: './hangman/hangman.module#HangmanPageModule' },
+  { path: 'home1', loadChildren: './home1/home1.module#Home1PageModule' }
 ];
 
 @NgModule({

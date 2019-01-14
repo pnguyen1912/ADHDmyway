@@ -34,7 +34,7 @@ export class ChartPage implements OnInit {
         }
       },
     //   series: [{
-    //     name: 'Chip',
+    //     name: this.api.User.nickname,
     //     data: [this.api.iii, this.api.iii1, this.api.iii2] 
     //   }, 
     // ]

@@ -1,759 +1,770 @@
 <ion-header>
-  <ion-toolbar>
+    <ion-toolbar>
     <ion-title>Medical Questions</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding class="back">
-
-  <!-- <div>
+    </ion-toolbar>
+   </ion-header>
+   
+   <ion-content padding class="back">
+   
+    <!-- <div>
     <img src="assets/icon/adhd.jpg" width="50%" alt="">
-  </div> -->
-
-
-  <!-- <div id="have">
+    </div> -->
+   
+   
+    <!-- <div id="have">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Have you been diagnosed with ADHD?</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-button shape="round" color="primary" fill="outline" (click)="yes()">
-          Yes
-        </ion-button>
-        <ion-button shape="round" color="primary" fill="outline" (click)="mainHome()">
-          No
-        </ion-button>
-        <ion-button shape="round" color="primary" fill="outline" (click)="mainHome()">
-          Skip
-        </ion-button>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Have you been diagnosed with ADHD?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-button shape="round" color="primary" fill="outline" (click)="yes()">
+    Yes
+    </ion-button>
+    <ion-button shape="round" color="primary" fill="outline" (click)="mainHome()">
+    No
+    </ion-button>
+    <ion-button shape="round" color="primary" fill="outline" (click)="mainHome()">
+    Skip
+    </ion-button>
+    </ion-card-content>
     </ion-card>
-  </div> -->
-
-
-
-
-
-  <div id='root'>
+    </div> -->
+   
+   
+   
+   
+   
+    <div id='root'>
     <ion-slides pager='true'>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHDmyway</ion-card-title>
-            <ion-card-subtitle>Welcome to the app!</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            We've developed this app to help those with ADHD understand and manage their symptoms in an effective manner,
-            while remaining fun and intuitive.
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Key features</ion-card-title>
-            <ion-card-subtitle>How are we going to do this?</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            Customizable avatar
-            <br>
-            Fun games and challenges
-            <br>
-            Leveling up and progression system
-            <br>
-            Scheduling made easy
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-      <ion-slide >
-          <ion-infinite-scroll>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Time to move on</ion-card-title>
-            <ion-card-subtitle></ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            The next step is to finally complete your profile.
-            <br>
-            We'll be asking you a series of questions and would be vital for you
-            to answer them honestly and to the best of your abilities.
-            <br>
-            This will ensure that you get the best user experience.
-            <br>
-            <br>
-            All information provided will be kept anonymous.
-          </ion-card-content>
-        </ion-card>
-       
-        <ion-card>
-          <p text-wrap>If you don't feel comfortable or don't have your parents you can always skip now and return later.</p>
-        </ion-card>
-  <br>
-  <br><br><br>
-        <div>
-          <ion-button>Skip</ion-button>
-        </div>
-      </ion-infinite-scroll>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Executive Functions</ion-label>
-              </ion-list-header>
-              <ion-list-header>
-                <ion-label>Impulse Control</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items; let i= index" >
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Emotional Control</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items1; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Planning/Prioritized</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items2; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Flexibility</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items3; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Working Memory</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items4; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Self-Monitoring</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items5; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Task-Initiation</ion-label>
-              </ion-list-header>
-  
-              <ion-label>Often procrastinates
-                <br> (select all that applies)</ion-label>
-              <ion-item *ngFor="let item of options; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-  
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Organization</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items6; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-      </ion-slide>
-      <ion-slide>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>ADHD Challenges</ion-card-title>
-            <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Metacogniton</ion-label>
-              </ion-list-header>
-              <ion-item *ngFor="let item of items7; let i= index">
-                <ion-label text-wrap>{{item.name}}</ion-label>
-                <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card style="padding-bottom: 25%">
-          <ion-card-header>
-            <ion-card-title>Personal Information</ion-card-title>
-            <ion-card-subtitle>Please fill out below</ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>General Information</ion-label>
-              </ion-list-header>
-              <ion-item>
-                  <ion-label>Height</ion-label>
-                  <ion-input color='me' (keyup.enter)='heightFunc()' [(ngModel)]='inputValue2' text-right id='input' type="text"
-                    inputmode='numeric' maxlength='1' required='true' placeholder='feet'></ion-input>
-                    <ion-input (keyup.enter)='heightFunc()' [(ngModel)]='inputValue3' text-right id='input' slot='end' type="text"
-                    inputmode='numeric' maxlength='2' required='true' placeholder='inches'></ion-input>
-                </ion-item>
-              <ion-item>
-                <ion-label>Weight</ion-label>
-                <ion-input (keyup.enter)='weightFunc()' [(ngModel)]='inputValue1' text-right id='input' slot='end' type="text"
-                  inputmode='numeric' maxlength='3' required='true' placeholder='lbs.'></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label>Zip Code</ion-label>
-                <ion-input (keyup.enter)='zipFunc()' [(ngModel)]='inputValue' text-right id='input' slot='end' type="text"
-                  inputmode='numeric' maxlength='5' required='true' placeholder='54321'></ion-input>
-              </ion-item>
-  
-
-            </ion-list>
-          </ion-card-content>
-          <div>
-            <ion-button class='below' (click)="getCheckedvalue()">Almost there</ion-button>
-          </div>
-
-        </ion-card>
-        <!-- <div>
-        <ion-button class='below' (click)="getCheckedvalue()">Almost there</ion-button>
-      </div> -->
-      </ion-slide>
-     
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHDmyway</ion-card-title>
+    <ion-card-subtitle>Welcome to the app!</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    We've developed this app to help those with ADHD understand and manage their symptoms in an effective manner,
+    while remaining fun and intuitive.
+    </ion-card-content>
+    </ion-card>
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>Key features</ion-card-title>
+    <ion-card-subtitle>How are we going to do this?</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    Customizable avatar
+    <br>
+    Fun games and challenges
+    <br>
+    Leveling up and progression system
+    <br>
+    Scheduling made easy
+    </ion-card-content>
+    </ion-card>
+    </ion-slide>
+    <ion-slide >
+    <ion-infinite-scroll>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>Time to move on</ion-card-title>
+    <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    The next step is to finally complete your profile.
+    <br>
+    We'll be asking you a series of questions and would be vital for you
+    to answer them honestly and to the best of your abilities.
+    <br>
+    This will ensure that you get the best user experience.
+    <br>
+    <br>
+    All information provided will be kept anonymous.
+    </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+    <p text-wrap>If you don't feel comfortable or don't have your parents you can always skip now and return later.</p>
+    </ion-card>
+    <br>
+    <br><br><br>
+    <div>
+    <ion-button (click)='user()'>Skip</ion-button>
+    </div>
+    </ion-infinite-scroll>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Executive Functions</ion-label>
+    </ion-list-header>
+    <ion-list-header>
+    <ion-label>Impulse Control</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items; let i= index" >
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Emotional Control</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items1; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Planning/Prioritized</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items2; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Flexibility</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items3; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Working Memory</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items4; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Self-Monitoring</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items5; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Task-Initiation</ion-label>
+    </ion-list-header>
+    
+    <ion-label>Often procrastinates
+    <br> (select all that applies)</ion-label>
+    <ion-item *ngFor="let item of options; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Organization</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items6; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    </ion-slide>
+    <ion-slide>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>ADHD Challenges</ion-card-title>
+    <ion-card-subtitle>Choose which apply to you below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Metacogniton</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of items7; let i= index">
+    <ion-label text-wrap>{{item.name}}</ion-label>
+    <ion-checkbox [(ngModel)]="item.isChecked" slot='end'></ion-checkbox>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    </ion-slide>
+    <ion-slide>
+    <ion-card style="padding-bottom: 25%">
+    <ion-card-header>
+    <ion-card-title>Personal Information</ion-card-title>
+    <ion-card-subtitle>Please fill out below</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>General Information</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-label>Height</ion-label>
+    <ion-input color='me' (keyup.enter)='heightFunc()' [(ngModel)]='inputValue2' text-right id='input' type="text"
+    inputmode='numeric' maxlength='1' required='true' placeholder='feet'></ion-input>
+    <ion-input (keyup.enter)='heightFunc()' [(ngModel)]='inputValue3' text-right id='input' slot='end' type="text"
+    inputmode='numeric' maxlength='2' required='true' placeholder='inches'></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label>Weight</ion-label>
+    <ion-input (keyup.enter)='weightFunc()' [(ngModel)]='inputValue1' text-right id='input' slot='end' type="text"
+    inputmode='numeric' maxlength='3' required='true' placeholder='lbs.'></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label>Zip Code</ion-label>
+    <ion-input (keyup.enter)='zipFunc()' [(ngModel)]='inputValue' text-right id='input' slot='end' type="text"
+    inputmode='numeric' maxlength='5' required='true' placeholder='54321'></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input required type="text" placeholder="First name" [(ngModel)]="firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input required type="text" placeholder="Last name" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-input required type="text" placeholder="Nick name" [(ngModel)]="nickname"></ion-input>
+    </ion-item>
+    
+   
+    </ion-list>
+    </ion-card-content>
+    <div>
+    <ion-button class='below' (click)="getCheckedvalue()">Almost there</ion-button>
+    </div>
+   
+    </ion-card>
+    <!-- <div>
+    <ion-button class='below' (click)="getCheckedvalue()">Almost there</ion-button>
+    </div> -->
+    </ion-slide>
+    
     </ion-slides>
     </div>
-    <div>
-      <div style='display:none' id='toggleDiv'>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Eating Habits</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Appetite</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc()' [(ngModel)]='singleValue' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap>Eat 3 meals a day?</ion-label>
-                <ion-select [(ngModel)]='meals' (ionChange)='onChange(meals)' placeholder='Select one'>
-                  <ion-select-option value=" 3 meals true">True</ion-select-option>
-                  <ion-select-option value=" 3 meals false">False</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap>Are you a heavy snacker</ion-label>
-                <ion-select [(ngModel)]='snack' (ionChange)='onChange(snack)' placeholder='Select one'>
-                  <ion-select-option value="heavy snacker true">True</ion-select-option>
-                  <ion-select-option value="heavy snacker false">False</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap>50% or more of diet is processed foods(if no, then see below)</ion-label>
-                <ion-select [(ngModel)]='diet' (ionChange)='onChange(diet)' placeholder='Select one'>
-                  <ion-select-option value=" diet true">True</ion-select-option>
-                  <ion-select-option value="diet false">False</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-list-header>
-                <ion-label text-wrap>% of processed foods</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc1()' [(ngModel)]='singleValue1' debounce='500' min="1" max="49" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">1</ion-label>
-                  <ion-label slot="end">49</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Sugar Intake</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc2()' [(ngModel)]='singleValue2' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Hygiene</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label text-wrap>Avergage hours of sleep</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc3()' [(ngModel)]='singleValue3' debounce='500' min="0" max="12" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">12</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap>Do you wash daily(if no, see below)?</ion-label>
-                <ion-select [(ngModel)]='stuff' (ionChange)='onChange(stuff)' placeholder='Select one'>
-                  <ion-select-option value="Wash daily: YES">Yes</ion-select-option>
-                  <ion-select-option value="Wash daily: NO">No</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap>How often per week?</ion-label>
-                <ion-range (ionChange)='updateFunc4()' [(ngModel)]='singleValue4' debounce='500' min="1" max="6" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">1</ion-label>
-                  <ion-label slot="end">6</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-item>
-                <ion-label text-wrap >Do you wear clean clothes?</ion-label>
-                <ion-select [(ngModel)]='clothes' (ionChange)='onChange(clothes)' placeholder='Select one'>
-                  <ion-select-option value="Clean clothes: Yes">Yes</ion-select-option>
-                  <ion-select-option value="Clean clothes: No">No</ion-select-option>
-                </ion-select>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-  
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Stress Levels</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list-header>
-              <ion-label>School</ion-label>
-            </ion-list-header>
-            <ion-list>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc5()' [(ngModel)]='singleValue5' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Home</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc6()' [(ngModel)]='singleValue6' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Friends</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc7()' [(ngModel)]='singleValue7' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Sports</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc8()' [(ngModel)]='singleValue8' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Work</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc9()' [(ngModel)]='singleValue9' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Other</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc10()' [(ngModel)]='singleValue10' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Physical Fitness</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-list-header>
-                <ion-label>Physical Education</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc11()' [(ngModel)]='singleValue11' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Workout</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc12()' [(ngModel)]='singleValue12' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Sports</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc13()' [(ngModel)]='singleValue13' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Free Time</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc14()' [(ngModel)]='singleValue14' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-              <ion-list-header>
-                <ion-label>Other</ion-label>
-              </ion-list-header>
-              <ion-item>
-                <ion-range (ionChange)='updateFunc15()' [(ngModel)]='singleValue15' debounce='500' min="0" max="10" step='1'
-                  pin='true' color="secondary">
-                  <ion-label slot="start">0</ion-label>
-                  <ion-label slot="end">10</ion-label>
-                </ion-range>
-              </ion-item>
-            </ion-list>
-          </ion-card-content>
-        </ion-card>
-        <div>
-            <ion-button class='below1'>Done</ion-button>
-          </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-  <div id="whatKind" style="display: none">
+   
+   
+   
+    
+    
+    <div style='display:none' id='toggleDiv'>
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>What kind of medication do you take?</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>Stimulant</ion-label>
-            <ion-toggle [(ngModel)]="stim1" (ionChange)="change11()" slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Non Stimulant</ion-label>
-            <ion-toggle [(ngModel)]="nonstim1" (ionChange)="change12()" slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Antidepressant</ion-label>
-            <ion-toggle [(ngModel)]="antip" (ionChange)="change13()" slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Anxiety</ion-label>
-            <ion-toggle [(ngModel)]="anx" (ionChange)="change14()" slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-        <ion-button shape="round" color="primary" fill="outline" (click)="next()">Next</ion-button>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Eating Habits</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Appetite</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc()' [(ngModel)]='singleValue' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap>Eat 3 meals a day?</ion-label>
+    <ion-select [(ngModel)]='meals' (ionChange)='onChange(meals)' placeholder='Select one'>
+    <ion-select-option value=" 3 meals true">True</ion-select-option>
+    <ion-select-option value=" 3 meals false">False</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap>Are you a heavy snacker</ion-label>
+    <ion-select [(ngModel)]='snack' (ionChange)='onChange(snack)' placeholder='Select one'>
+    <ion-select-option value="heavy snacker true">True</ion-select-option>
+    <ion-select-option value="heavy snacker false">False</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap>50% or more of diet is processed foods(if no, then see below)</ion-label>
+    <ion-select [(ngModel)]='diet' (ionChange)='onChange(diet)' placeholder='Select one'>
+    <ion-select-option value=" diet true">True</ion-select-option>
+    <ion-select-option value="diet false">False</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-list-header>
+    <ion-label text-wrap>% of processed foods</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc1()' [(ngModel)]='singleValue1' debounce='500' min="1" max="49" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">1</ion-label>
+    <ion-label slot="end">49</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Sugar Intake</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc2()' [(ngModel)]='singleValue2' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>Hygiene</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label text-wrap>Avergage hours of sleep</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc3()' [(ngModel)]='singleValue3' debounce='500' min="0" max="12" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">12</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap>Do you wash daily(if no, see below)?</ion-label>
+    <ion-select [(ngModel)]='stuff' (ionChange)='onChange(stuff)' placeholder='Select one'>
+    <ion-select-option value="Wash daily: YES">Yes</ion-select-option>
+    <ion-select-option value="Wash daily: NO">No</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap>How often per week?</ion-label>
+    <ion-range (ionChange)='updateFunc4()' [(ngModel)]='singleValue4' debounce='500' min="1" max="6" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">1</ion-label>
+    <ion-label slot="end">6</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-item>
+    <ion-label text-wrap >Do you wear clean clothes?</ion-label>
+    <ion-select [(ngModel)]='clothes' (ionChange)='onChange(clothes)' placeholder='Select one'>
+    <ion-select-option value="Clean clothes: Yes">Yes</ion-select-option>
+    <ion-select-option value="Clean clothes: No">No</ion-select-option>
+    </ion-select>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>Stress Levels</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list-header>
+    <ion-label>School</ion-label>
+    </ion-list-header>
+    <ion-list>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc5()' [(ngModel)]='singleValue5' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Home</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc6()' [(ngModel)]='singleValue6' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Friends</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc7()' [(ngModel)]='singleValue7' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Sports</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc8()' [(ngModel)]='singleValue8' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Work</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc9()' [(ngModel)]='singleValue9' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Other</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc10()' [(ngModel)]='singleValue10' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    </ion-card>
+    <ion-card>
+    <ion-card-header>
+    <ion-card-title>Physical Fitness</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-list-header>
+    <ion-label>Physical Education</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc11()' [(ngModel)]='singleValue11' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Workout</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc12()' [(ngModel)]='singleValue12' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Sports</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc13()' [(ngModel)]='singleValue13' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Free Time</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc14()' [(ngModel)]='singleValue14' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    <ion-list-header>
+    <ion-label>Other</ion-label>
+    </ion-list-header>
+    <ion-item>
+    <ion-range (ionChange)='updateFunc15()' [(ngModel)]='singleValue15' debounce='500' min="0" max="10" step='1'
+    pin='true' color="secondary">
+    <ion-label slot="start">0</ion-label>
+    <ion-label slot="end">10</ion-label>
+    </ion-range>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
     </ion-card>
     <div>
-      <ion-button shape="round" color="primary" fill="outline" (click)="back()">
-        Back
-      </ion-button>
+    <ion-button (click)='user' class='below1'>Skip</ion-button>
+    <ion-button (click)='finish()' class='below1'>Done</ion-button>
     </div>
-  </div>
-
-
-  <div id="stim" style="display: none">
+    </div>
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    <div id='med' style='display: none;'>
+   
+    <!-- <ion-card>
+    <ion-card-header>
+    <ion-card-title>What kind of medication do you take?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+    <ion-label>Stimulant</ion-label>
+    <ion-toggle [(ngModel)]="stim1" (ionChange)="change11()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Non Stimulant</ion-label>
+    <ion-toggle [(ngModel)]="nonstim1" (ionChange)="change12()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Antidepressant</ion-label>
+    <ion-toggle [(ngModel)]="antip" (ionChange)="change13()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Anxiety</ion-label>
+    <ion-toggle [(ngModel)]="anx" (ionChange)="change14()" slot="end"></ion-toggle>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
+    <ion-button (click) ="next()">Next</ion-button>
+    </ion-card> -->
+    <div>
+    </div>
+    
+   
+   
+    <div id="stim">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Stimulant</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>Adderall</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Adderall XR</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Vyvanse</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Retalin</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Stimulant</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+    <ion-label>Adderall</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Adderall XR</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Vyvanse</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Retalin</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
     </ion-card>
-
-  </div>
-
-
-
-
-  <div id="nonstim" style="display: none">
+   
+    </div>
+   
+   
+   
+   
+    <div id="nonstim">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Non Stimulant</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>Strattera</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Intunity</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Non Stimulant</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+    <ion-label>Strattera</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Intunity</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
     </ion-card>
-
-  </div>
-
-
-
-
-
-  <div id="anti" style="display: none">
+   
+    </div>
+   
+   
+   
+   
+   
+    <div id="anti">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Antidepressant</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>Wellbutrin</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Aventyl</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Luvox</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Lexapro</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Antidepressant</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+    <ion-label>Wellbutrin</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Aventyl</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Luvox</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Lexapro</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
     </ion-card>
-
-  </div>
-
-
-
-
-  <div id="anxiety" style="display: none">
+   
+    </div>
+   
+   
+   
+   
+    <div id="anxiety">
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>Anxiety</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>Prozac</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Zoloft</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Celexa</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Paxil</ion-label>
-            <ion-toggle slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
+    <ion-card-header>
+    <ion-card-title>Anxiety</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+    <ion-label>Prozac</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Zoloft</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Celexa</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+    <ion-label>Paxil</ion-label>
+    <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    </ion-list>
+    </ion-card-content>
     </ion-card>
-
-  </div>
-  <div id="next1" style="display:none">
-    <ion-button shape="round" color="primary" fill="outline" (click)="next1()">Next</ion-button>
-  </div>
-  <div id="back" style="display:none">
-    <ion-button shape="round" color="primary" fill="outline" (click)="back()">
-      Back
-    </ion-button>
-  </div>
-
-
- -->
-
-</ion-content>
+   
+    </div>
+    <div >
+    <ion-button (click)="user()">Next</ion-button>
+    </div>
+   
+    
+   </div>
+   
+   
+    
+   
+   </ion-content>

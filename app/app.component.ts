@@ -23,14 +23,14 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Camera',
-      url: '/camera',
-      icon: 'camera'
-    },
-    {
       title: 'Task',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Camera',
+      url: '/camera',
+      icon: 'camera'
     },
     {
       title: 'myMap',
@@ -47,11 +47,11 @@ export class AppComponent {
       url: '/journal',
       icon: 'book'
     },
-    {
-      title: 'Wellness',
-      url: '/well',
-      icon: 'heart'
-    },
+    // {
+    //   title: 'Wellness',
+    //   url: '/well',
+    //   icon: 'heart'
+    // },
     {
       title: 'Report',
       url: '/report',

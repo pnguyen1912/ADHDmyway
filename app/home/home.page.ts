@@ -21,6 +21,7 @@ import {
 import { RestapiService } from '../restapi.service';
 import { Storage } from '@ionic/storage';
 import { CognitoService } from '../cognito.service';
+import { Button } from 'protractor';
 // import { ApiService } from '../api.service';
 
 
@@ -52,7 +53,7 @@ export class HomePage {
                   // }, 3000);
                   
                 }
-                username = this.cog.getAuthenticatedUser().getUsername();
+                // username = this.cog.getAuthenticatedUser().getUsername();
   created:boolean = false;
   ngOnInit(){
     // this.loopArray.push('crazy', 'buddy', 'monkey');
@@ -141,8 +142,13 @@ export class HomePage {
       console.log(this.dashselect)
     }
     char.appendChild(chec)
-    
-    char.style.display = 'inline-block';
+    let a= 1
+    char.onclick = (async) => {
+      if (a== 1){this.askwell(); a=a+1} 
+      else if (a ==2) {this.askfood(); a=a+1}
+      else if (a== 3) {this.askhow()}
+      char.style.display = 'inline-block';
+    };
     this.created = true;
     } else {
       console.log('already created')
@@ -172,33 +178,54 @@ export class HomePage {
     //    else if (this.api.User.select ==6){
     //   b3.style.display = 'inline-block';console.log(this.api.User.select)
     // } 
-    let a = setTimeout(() => {
+    // let a = setTimeout(() => {
+    //   this.askhow();
+    // }, 10000);
+    // setTimeout(() => {
+    //   this.askwell();
+    // }, 20000);    
+    // setTimeout(() => {
+    //   this.askfood()
+    // }, 25000);
+  }
+  askhow(){
+  let div1 = document.getElementById('div1')
+  div1.innerHTML = 'How are you today?';
+  let btn = document.getElementById('btn');
+  btn.style.display = 'inline-block';
+  this.tts.speak({
+    text: 'How are you today?',
+    locale: 'en-US',
+    rate: 1.6,
+  })
+}
 
-      let div1 = document.getElementById('div111')
-      div1.innerHTML = 'How are you today?';
-      let btn = document.getElementById('btn');
-      btn.style.display = 'inline-block';
-      this.tts.speak({
-        text: 'How are you today?',
-        locale: 'en-US',
-        rate: 1.6,
-      })
-    }, 5000);
+  async askwell() {
+    const alert = await this.alertCtrl.create({
+      header: 'Deep breath for 10s'
+    })
+    await alert.present();
+  }
+  async askfood() {
+    const alert = await this.alertCtrl.create({
+      header: 'Remember to eat your lunch'
+    })
+    await alert.present();
   }
 
- askagain(){
-   let a=setTimeout(()=>{
-     let div1=document.getElementById('div1')
-    div1.innerHTML = 'How are you today?';
-    let btn=document.getElementById('btn');
-      btn.style.display = 'inline-block';
-      this.tts.speak({
-        text: 'How are you today?',
-        locale: 'en-US',
-        rate: 1.6,
-      })
-   },10000)
- }
+//  askagain(){
+//    let a=setTimeout(()=>{
+//      let div1=document.getElementById('div1')
+//     div1.innerHTML = 'How are you today?';
+//     let btn=document.getElementById('btn');
+//       btn.style.display = 'inline-block';
+//       this.tts.speak({
+//         text: 'How are you today?',
+//         locale: 'en-US',
+//         rate: 1.6,
+//       })
+//    },10000)
+//  }
   
   ask() {
     this.tts.speak({
@@ -219,7 +246,8 @@ export class HomePage {
       header: 'I am glad that you are doing good',
       subHeader:'Tell me more about it',
       inputs: [{
-        placeholder: 'Type here'
+        placeholder: 'Type here',
+        id:'smile'
       }],
       buttons: [{
           text: 'Skip',
@@ -230,6 +258,8 @@ export class HomePage {
         {
           text: 'Submit',
           handler: async data => {
+            let smile = < HTMLInputElement >document.getElementById('smile')
+            this.api.report.smile[this.api.User.dailymood.smile]= smile.value;
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
@@ -254,7 +284,7 @@ export class HomePage {
       div1.innerHTML = `Great!`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
-      this.askagain();
+      
     })
 
     await alert.present();
@@ -271,7 +301,8 @@ export class HomePage {
       header: 'I hope your day will get better',
       subHeader:'Tell me more about it',
       inputs: [{
-        placeholder: 'Type here'
+        placeholder: 'Type here',
+        id: 'neu'
       }],
       buttons: [{
           text: 'Skip',
@@ -282,6 +313,9 @@ export class HomePage {
         {
           text: 'Submit',
           handler: async data => {
+            let neu = < HTMLInputElement >document.getElementById('neu')
+            this.api.report.neutral[this.api.User.dailymood.neutral]= neu.value;
+            
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
@@ -306,7 +340,7 @@ export class HomePage {
       div1.innerHTML = `What's wrong? I am here to help`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
-      this.askagain();
+      // this.askagain();
     })
 
     await alert.present();
@@ -324,7 +358,8 @@ export class HomePage {
       header: 'What is wrong? I am here to help',
       subHeader:'Tell me more about it',
       inputs: [{
-        placeholder: 'Type here'
+        placeholder: 'Type here',
+        id: 'mad'
       }],
       buttons: [{
           text: 'Skip',
@@ -335,6 +370,8 @@ export class HomePage {
         {
           text: 'Submit',
           handler: async data => {
+            let mad = < HTMLInputElement >document.getElementById('mad')
+            this.api.report.mad[this.api.User.dailymood.mad]= mad.value;
             this.tts.speak({
               text: 'Thank you!',
               locale: 'en-US',
@@ -359,7 +396,7 @@ export class HomePage {
       div1.innerHTML = `Hope your day will get better`;
       let btn=document.getElementById('btn');
       btn.style.display = 'none';
-      this.askagain();
+      // this.askagain();
     })
 
     await alert.present();

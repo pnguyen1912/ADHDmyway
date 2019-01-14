@@ -18,13 +18,16 @@ import {ModalPage} from './modal/modal.page';
 import { PhotoLibrary } from '@ionic-native/photo-library/ngx';
 import { HomePage } from './home/home.page';
 import { UserPage } from './user/user.page';
-
+// import { TicTacToePipe } from './tic-tac-toe.pipe';
+import {DragulaModule} from 'ng2-dragula'
 @NgModule({
   declarations: [ModalPage, AppComponent],
   entryComponents: [ModalPage],
   imports: [
     HttpClientModule,
     BrowserModule,
+    DragulaModule,
+    DragulaModule.forRoot(),
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot()
@@ -35,6 +38,7 @@ import { UserPage } from './user/user.page';
     Camera,
     TextToSpeech,
     Calendar,
+      
     PhotoLibrary,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

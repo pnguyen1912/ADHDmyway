@@ -1,8 +1,15 @@
 ion-content{
     text-align: center;
-}
+   }
+   
+//    #loginpage{
+//     --background: url('../../assets/2.png') no-repeat center center / cover;
+//     height: 50%;
+//     // opacity: .8;
+//   }
+  
 
-input[type=text], input[type=password], input[type=number], input[type=email]{
+   input[type=text], input[type=password], input[type=number], input[type=email]{
     text-align-last: center;
     width: 80%;
     height: 50px;
@@ -12,24 +19,24 @@ input[type=text], input[type=password], input[type=number], input[type=email]{
     border: 1px solid #ccc;
     border-radius: 50px;
     box-sizing: border-box;
-}    
-
-
- label {
-     font-size: 20px;
-     color: black;
- }
-
- .masters {
+   } 
+   
+   
+    label {
+    font-size: 20px;
+    color: black;
+    }
+   
+    .masters {
     background-color: green;
-}
-ion-content {
+   }
+   ion-content {
     // background-color: rgb(101, 41, 41);
     text-align: center;
-}
-:root {
+   }
+   :root {
     --primary-color: orange;
-  }
-  button {
+    }
+    button {
     background: var(--primary-color);
-  } 
+    } 
