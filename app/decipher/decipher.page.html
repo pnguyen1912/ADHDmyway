@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>decipher</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll = "false">
+  
+  <ion-button (click)="exit()">EXIT</ion-button>
+ <p>WHAT'S ROUND ON THE SIDES AND HIGH IN THE MIDDLE?</p>
+  <ion-grid>
+
+      <ion-row no-padding align-items-center class="matrix">
+        <ion-col size="3" class="qPool">
+          <div class="q-header">Pool</div>
+          <ion-list dragula="bag" [(dragulaModel)]="qPool" lines="none">
+            <ion-item *ngFor="let item of qPool" [color]="item.color" expand="block" text-wrap>
+              {{ item.value }}
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+ 
+    <ion-row no-padding align-items-center class="matrix">
+      <ion-col size="3" class="q1">
+        <div class="q-header">Q1</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q1" lines="none">
+          <ion-item *ngFor="let item of q1" [color]="item.color" expand="block" text-wrap>
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+ 
+      <ion-col size="3" class="q2">
+        <div class="q-header">Q2</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q2" lines="none">
+          <ion-item *ngFor="let item of q2" [color]="item.color" expand="block" text-wrap>
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+ 
+      <ion-col size="3" class="q3">
+        <div class="q-header">Q3</div>
+        <ion-list dragula="bag" [(dragulaModel)]="q3" lines="none">
+          <ion-item *ngFor="let item of q3" [color]="item.color" expand="block" text-wrap>
+            {{ item.value }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="3" class="q4">
+          <div class="q-header">Q3</div>
+          <ion-list dragula="bag" [(dragulaModel)]="q4" lines="none">
+            <ion-item *ngFor="let item of q4" [color]="item.color" expand="block" text-wrap>
+              {{ item.value }}
+            </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="finished()">enter</ion-button>
+
+</ion-content>

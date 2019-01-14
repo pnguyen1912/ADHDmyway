@@ -32,7 +32,7 @@ export class RewardPage implements OnInit {
 
   async moneyAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'You know damn well you didn"t have enough'
+      header: "Sorry, you don't have enough ⭐"
     })
     await alert.present();
   }

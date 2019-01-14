@@ -136,12 +136,23 @@ export class RestapiService {
 
 
 
-
+public report ={
+  smile: [],
+  neutral: [],
+  mad:[],
+}
 
   public User = {
+    DOB: "1999-01-01",
+    gender:"Male",
+    nickname: "Default",
+    firstname: "Firstname",
+    lastname: "Lastname",
+    ballonmax:0,
     select: 1,
     stars: 0,
     level: 1,
+    experience:0,
     boot: false,
     glove: false,
     dailymood: {
@@ -149,7 +160,7 @@ export class RestapiService {
       neutral: 0,
       mad: 0,
     },
-    test: 'hello',
+    test: true,
     task: {
       todo: [],
       doing: [],
@@ -203,17 +214,70 @@ export class RestapiService {
     // https://499adbe4a1.execute-api.us-east-2.amazonaws.com/dev/postToTable
       this.http.post('https://ceo7e027k2.execute-api.us-east-2.amazonaws.com/newtestStage/Realgetdata',JSON.stringify(postmoreData))
       .subscribe( response => {
+        console.log(response)
         this._data = response;
         console.log("get success: ", this._data);
-        this.User.select = this._data.Item.User.M.select.N;
-        this.User.level = this._data.Item.User.M.level.N;
-        this.User.stars = this._data.Item.User.M.stars.N;
+        // setTimeout(()=>{
+        this.User.nickname = this._data.Item.User.M.nickname.S
+        this.User.firstname = this._data.Item.User.M.firstname.S
+        this.User.lastname = this._data.Item.User.M.lastname.S
+
+          if (typeof this._data.Item.User.M.ballonmax.S == 'string'){
+        this.User.ballonmax = parseInt(this._data.Item.User.M.ballonmax.S);
+          } else {this.User.ballonmax = this._data.Item.User.M.ballonmax.N}
+
+          if (typeof this._data.Item.User.M.select.S == 'string'){
+        this.User.select = parseInt(this._data.Item.User.M.select.S);
+          } else {this.User.select = this._data.Item.User.M.select.N}
+
+          if (typeof this._data.Item.User.M.experience.S == 'string'){
+        this.User.experience = parseInt(this._data.Item.User.M.experience.S);
+          } else {this.User.experience = this._data.Item.User.M.experience.N}
+
+        if (typeof this._data.Item.User.M.level.S == 'string'){
+        this.User.level = parseInt(this._data.Item.User.M.level.S);
+          } else {this.User.level = this._data.Item.User.M.level.N;}
+
+        if (typeof this._data.Item.User.M.stars.S == 'string'){
+        this.User.stars = parseInt(this._data.Item.User.M.stars.S);
+          } else {this.User.stars =this._data.Item.User.M.stars.N;}
+
         this.User.boot = this._data.Item.User.M.boot.BOOL;
         this.User.glove = this._data.Item.User.M.glove.BOOL;
-        this.User.dailymood.mad = this._data.Item.User.M.dailymood.M.mad.N;
-        this.User.dailymood.neutral = this._data.Item.User.M.dailymood.M.neutral.N;
-        this.User.dailymood.smile = this._data.Item.User.M.dailymood.M.smile.N;
-       console.log(this.User)
+
+        if (typeof this._data.Item.User.M.dailymood.M.mad.S == 'string'){
+          this.User.dailymood.mad = parseInt(this._data.Item.User.M.dailymood.M.mad.S);
+            } else {this.User.dailymood.mad = this._data.Item.User.M.dailymood.M.mad.N;}
+
+        if (typeof this._data.Item.User.M.dailymood.M.neutral.S == 'string'){
+        this.User.dailymood.neutral = parseInt(this._data.Item.User.M.dailymood.M.neutral.S);
+          } else {this.User.dailymood.neutral = this._data.Item.User.M.dailymood.M.neutral.N;}
+
+        if (typeof this._data.Item.User.M.dailymood.M.smile.S == 'string'){
+        this.User.dailymood.smile = parseInt(this._data.Item.User.M.dailymood.M.smile.S);
+          } else {this.User.dailymood.smile = this._data.Item.User.M.dailymood.M.smile.N;}
+        
+        let i1=0
+        while(i1<this._data.Item.User.M.task.M.todo.L.length){
+          this.User.task.todo[i1]=this._data.Item.User.M.task.M.todo.L[i1].S
+          i1=i1+1;
+       
+        }
+        let i2=0
+        while(i2<this._data.Item.User.M.task.M.doing.L.length){
+          this.User.task.doing[i2]=this._data.Item.User.M.task.M.doing.L[i2].S
+          i2=i2+1;
+        }
+        let i3=0
+        while(i3<this._data.Item.User.M.task.M.done.L.length){
+          this.User.task.done[i3]=this._data.Item.User.M.task.M.todo.L[i3].S
+          i3=i3+1;
+        }
+        console.log(this.User)
+      // },1000)
+      //  console.log(this.User)
+
+
       }, err => {
         console.log("get error: ", err);
       });

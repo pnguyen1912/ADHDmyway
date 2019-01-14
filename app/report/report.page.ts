@@ -19,7 +19,7 @@ export class ReportPage implements OnInit {
   constructor(
     public cog:CognitoService,
     public navCtrl: NavController, private router: Router, private api: RestapiService) { }
-newnew = this.cog.getAuthenticatedUser().getUsername();
+// newnew = this.cog.getAuthenticatedUser().getUsername();
   ngOnInit() {
     // let myChart = document.getElementById('container');
 
@@ -28,7 +28,7 @@ newnew = this.cog.getAuthenticatedUser().getUsername();
         type: 'bar'
       },  
       title: {
-        text: 'Users progress'
+        text: 'Users Emotions'
       },
       xAxis: {
         categories: ['Happy', 'Neutral', 'Sad']
@@ -38,12 +38,11 @@ newnew = this.cog.getAuthenticatedUser().getUsername();
           text: 'Times this Week'
         }
       },
-      // series: [{
-      //   name: this.newnew,
-      //   data: [this.api.User.dailymood.smile, this.api.User.dailymood.neutral, this.api.User.dailymood.mad]
-      // }]
+
+
+      
     //   series: [{
-    //     name: 'Cesar',
+    //     name: this.api.User.nickname,
     //     data: [this.api.User.dailymood.smile, this.api.User.dailymood.neutral, this.api.User.dailymood.mad],
     //   }
     // ]
@@ -79,6 +78,9 @@ newnew = this.cog.getAuthenticatedUser().getUsername();
   //   ]
   //   });
   // }
+ backpar(){
+   this.router.navigate(['/parent'])
+ }
 
 }
 

@@ -98,7 +98,7 @@ export class ListPage implements OnInit {
             console.log(this.api.User);
             console.log(newa.id)
             this.i++;
-            newa.setAttribute('style', 'color:red')
+            newa.setAttribute('style', 'font-size: 25px')
 
             newa.onclick = (async) => this.classFunction1(newa.id);
           }
@@ -152,7 +152,7 @@ export class ListPage implements OnInit {
             // newa.append(newtimer)
             this.ii++;
             newa.onclick = (async) => this.classFunction2(newa.id);
-            this.camera();
+            // this.camera();
             
           }
         }
@@ -207,7 +207,7 @@ export class ListPage implements OnInit {
 
             console.log(this.api.User);
             this.camera();
-            this.api.iii = this.iii;
+            this.api.iii++;
             this.iii++;
             this.unlock();
             this.router.navigate(['/balloon'])

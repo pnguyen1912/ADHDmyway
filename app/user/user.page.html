@@ -1,27 +1,39 @@
+
 <ion-header>
-  <ion-toolbar>
-    
-    <ion-title>
-      Story
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-  <!-- <button id='btn' onclick="camera()">Show camera</button>
-  <video id="video" width="640" height="480"  style="display:none"></video>
-  <script src="javas.js"></script>
-  <div id='video'></div>
-  <button onclick='remove()'>Remove</button> --> 
-
-
-<ion-content>
- Welcome, my name is Bla Bla Bla
- <img id='g1' style=' width: 200px;float:right;display:none'src="assets/girl1.png" alt="">
- <img id='g2' style=" width: 200px;float:right;display:none" src="assets/girl2.png" alt="">
- <img id='g3' style=" width: 200px;float:right;display:none"src="assets/girl3.png" alt="">
- <img id='b1' style=" width: 200px;float:right;display:none"src="assets/boy1.png" alt="">
- <img  id='b2' style=" width: 200px;float:right;display:none"src="assets/boy2.png" alt="">
- <img  id='b3' style=" width: 200px;float:right;display:none"src="assets/boy3.png" alt="">
-
- <ion-button (click)='godash()'>Enter the world</ion-button>
-</ion-content>
+    <ion-toolbar>
+      
+      <ion-title>
+        Story
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding id='main'>
+    <ion-slides class="cards" pager='true'>
+  
+      <ion-slide>
+          
+          <ion-card style="margin-top:10%">
+              <ion-card-header>Welcome to the Island!</ion-card-header>
+              <ion-card-content>It seems you’ve woken up in the swamp and lets just say the place is getting pretty stormy. Your family’s on a vacation and you seem to have gotten lost. Now we must find our way out of here so we can get back to the hotel. </ion-card-content>
+            </ion-card>
+      </ion-slide>
+      <ion-slide>
+          <ion-card>
+              <ion-card-header>Leveling Up</ion-card-header>
+              <ion-card-content>Now in order to get back to the hotel we must make our way across the land by leveling up. How do you level up, you ask? By completing tasks, homework, and activities you will receive xp. </ion-card-content>
+            </ion-card>
+  
+      </ion-slide>
+      <ion-slide>
+          <ion-card>
+              <ion-card-header>XP and Stars</ion-card-header>
+              <ion-card-content>You will use XP(experience points) to level up and to unlock new maps. You earn stars from completing games and use these to purchase items.</ion-card-content>
+              <ion-button class='below1' (click)='godash()'>Let's Go</ion-button>
+            </ion-card>
+     
+  
+      </ion-slide>
+  
+    </ion-slides>
+  </ion-content>

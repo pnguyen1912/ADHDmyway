@@ -1,0 +1,43 @@
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  #main{
+    --background: url('../../assets/2.png') no-repeat center center / cover;
+    height: 50%;
+    // opacity: .8;
+  }
+  
+  // -ion-content {
+  //   --background-image: #fff url('../../assets/1.jpg') 
+  //   ;
+  // }
+  
+  
+  
+  
+  
+  .welcome {
+    --background: white;
+    color: #1e02d8;
+    border-color: #1e02d8;
+    text-align: center;
+  }
+  
+   .level {
+    --background: white;
+    color: #1e02d8;
+    border-color: #1e02d8;
+    text-align: center;
+    width: 350px
+  }
+  
+  
+  
+  .happy, 
+  .okay, 
+  .mad {
+    --background: white;
+    
+  }

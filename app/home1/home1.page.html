@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        ADHD myway
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding id="main">
+    
+      <ion-card class="welcome">
+          <h2 id='div1' style="text-align: center;">Welcome back, {{this.api.User.nickname}}</h2>
+        </ion-card>
+  
+        <ion-buttons id ='btn' style="width:35%;display:none ">
+  
+            <ion-card class="happy"><img (click)='showAlertsmile()' src="assets/smiley.png" alt=""></ion-card>
+            <ion-card class="okay"><img (click)='showAlertneutral()' src="assets/neutral.png" alt=""></ion-card>
+            <ion-card class="mad"><img (click)='showAlertmad()' src="assets/mad.png" alt=""></ion-card>
+        
+        
+          </ion-buttons>
+          
+        
+          <div id='char' style=' width: 180px;float:right;'>
+              <!-- <ion-card class="level">
+                  <p>Level {{this.api.User.level}} </p>
+                </ion-card>  -->
+              </div>
+          <!-- <img id='g0' style=' width: 170px;float:right;display:block' src="assets/2090.png" alt="err"> -->
+          <!-- <img id='g1' style=' width: 200px;float:right;display:none' src="assets/girl1.png" alt="err">
+          <img id='g2' style=" width: 200px;float:right;display:none" src="assets/girl2.png" alt="err">
+          <img id='g3' style=" width: 200px;float:right;display:none" src="assets/girl3.png" alt="">
+          <img id='b1' style=" width: 200px;float:right;display:none" src="assets/boy1.png" alt="">
+          <img  id='b2' style=" width: 200px;float:right;display:none" src="assets/boy2.png" alt="">
+          <img  id='b3' style=" width: 200px;float:right;display:none" src="assets/boy3.png" alt=""> -->
+         <div style="position:absolute; bottom: 10%">
+          <ion-card class='level'>
+            <h2>
+            Level: {{this.api.User.level}}</h2>
+          </ion-card></div>
+          
+              <!-- <ion-button (click) = "testMed()">Test medical</ion-button> -->
+  
+  
+  </ion-content>
+  
